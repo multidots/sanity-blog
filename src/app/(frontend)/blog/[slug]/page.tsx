@@ -20,9 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!post) {
         return {};
     }
-
     const title = post?.seo?.title || post?.title || '';
-    const description = post?.seo?.description || post?.description || '';
+    const description = post?.seo?.description || '';
     const imageSource: SanityImageSource | undefined = (post?.seo?.image || post?.mainImage) as SanityImageSource | undefined;
     const ogImageUrl = imageSource ? urlFor(imageSource).url() : undefined;
     const categories = Array.isArray(post?.categories)

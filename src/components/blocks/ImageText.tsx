@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useEffect } from 'react';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
@@ -77,12 +76,14 @@ export default function ImageTextSection({
                         )}
                     </div>
                     <div className="about-image">
-                        <Image 
-                            src={urlFor(mainImage).url()} 
-                            alt={mainImage?.alt || 'Office'} 
-                            width={mainImage?.width || 400} 
-                            height={mainImage?.height || 400} 
-                        />
+                        {mainImage?.asset && (
+                            <Image 
+                                src={urlFor(mainImage).url()} 
+                                alt={mainImage?.alt || 'Office'} 
+                                width={mainImage?.width || 400} 
+                                height={mainImage?.height || 400} 
+                            />
+                        )}
                     </div>
                     
                 </div>

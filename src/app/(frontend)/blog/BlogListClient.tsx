@@ -15,7 +15,7 @@ type Post = {
     _id: string;
     title: string | null;
     slug: { current: string | null | undefined } | null;
-    description: string | null;
+    description?: string | null;
     publishedAt: string | null;
     mainImage: {
         asset?: {
@@ -46,7 +46,7 @@ type PostData = {
     _id: string;
     title: string | null;
     slug: { current: string | null | undefined } | null;
-    description: string | null;
+    description?: string | null;
     publishedAt: string | null;
     mainImage: {
         asset?: {
@@ -111,9 +111,8 @@ export default function BlogListClient() {
     useEffect(() => {
         const fetchPosts = async () => {
             setLoading(true);
-
             const siteSettings = await client.fetch(SITE_SETTINGS_QUERY);
-            setSiteSettings(siteSettings);
+            setSiteSettings(siteSettings as SiteSettings);
             const settingsPostsPerPage = siteSettings?.blogPostsPerPage || 6;
             setPostsPerPage(settingsPostsPerPage);
 
@@ -123,16 +122,16 @@ export default function BlogListClient() {
             const postCount = await client.fetch(POSTS_COUNT_QUERY);
 
             const fetchedPosts = await client.fetch(POSTS_QUERY, { start, end });
-            const postsData: PostData[] = fetchedPosts.map((post: any) => ({
-                _id: post._id,
-                title: post.title,
-                slug: post.slug ? { current: post.slug.current } : null,
-                description: post.description,
-                publishedAt: post.publishedAt,
-                mainImage: post.mainImage,
-                categories: post.categories ?? [],
-                author: post.author ?? null,
-                _type: post._type || 'post',
+            const postsData: PostData[] = fetchedPosts.map((post: unknown) => ({ // TODO: Use proper type from Sanity
+                _id: (post as any)._id,
+                title: (post as any).title,
+                slug: (post as any).slug ? { current: (post as any).slug.current } : null,
+                description: null, // Not included in POSTS_QUERY
+                publishedAt: (post as any).publishedAt,
+                mainImage: (post as any).mainImage,
+                categories: (post as any).categories ?? [],
+                author: (post as any).author ?? null,
+                _type: (post as any)._type || 'post',
             } as PostData));
             setPosts(postsData);
             setTotalPosts(postCount);

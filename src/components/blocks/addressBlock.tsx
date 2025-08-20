@@ -1,4 +1,4 @@
-export default function AddressBlock({ address, title, phone, email, socialMedia }: { address: any, title: string, phone: string, email: string, socialMedia: any }) {
+export default function AddressBlock({ address, phone, email, socialMedia }: { address: string, phone: string, email: string, socialMedia: { _key: string; url: string; icon: string; name: string }[] }) {
     console.log(address);
     return (
         <div className="contact-info">
@@ -10,7 +10,7 @@ export default function AddressBlock({ address, title, phone, email, socialMedia
                 <div className="form-social">
                     <span>Follow Us</span>
                     <ul>
-                        {socialMedia && socialMedia.map((social: any) => (
+                        {socialMedia && socialMedia.map((social) => (
                             <li key={social._key}>
                                 <a href={social.url}>
                                     <img src={social.icon} alt={social.name} />

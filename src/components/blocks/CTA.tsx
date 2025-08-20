@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -16,7 +15,7 @@ type CtaBlockProps = {
     button?: ButtonProps;
     backgroundColor?: string | { hex: string };
     textColor?: string | { hex: string };
-    backgroundImage?: any;
+    backgroundImage?: { asset?: unknown; alt?: string } | null;
     backgroundType?: 'image' | 'color';
 };
 
@@ -34,15 +33,15 @@ export default function CTABlock({
     return (
         <section id="contact" className="footer-cta"
             style={{
-                backgroundImage: backgroundType === 'image' ? `url(${urlFor(backgroundImage).width(1920).url()})` : 'none',
+                backgroundImage: backgroundType === 'image' && backgroundImage?.asset ? `url(${urlFor(backgroundImage).width(1920).url()})` : 'none',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                backgroundColor: backgroundType === 'color' ? backgroundColor?.hex : 'none',
+                backgroundColor: backgroundType === 'color' ? (typeof backgroundColor === 'string' ? backgroundColor : backgroundColor?.hex) : 'none',
             }}>
             <div className="container" >
-                {heading && <h2 style={{ color: textColor?.hex }}>{heading}</h2>}
-                {subheading && <p style={{ color: textColor?.hex }}>{subheading}</p>}
+                {heading && <h2 style={{ color: typeof textColor === 'string' ? textColor : textColor?.hex }}>{heading}</h2>}
+                {subheading && <p style={{ color: typeof textColor === 'string' ? textColor : textColor?.hex }}>{subheading}</p>}
                 {button && (
                     <button>{button.text}</button>
                 )}

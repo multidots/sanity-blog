@@ -12,7 +12,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
         <div>
             <Header {...headerData} />
             {children}
-            {footerData && <Footer footer={footerData.footer} />}
+            {/* {footerData && <Footer footer={footerData} />} */}
         </div>
     );
 }

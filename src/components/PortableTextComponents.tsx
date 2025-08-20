@@ -6,7 +6,7 @@ import HighlightBlock from './blocks/HighlightBlock';
 
 export const portableTextComponents = {
   types: {
-    image: ({ value }: any) => {
+    image: ({ value }: { value: { asset?: unknown; alt?: string; width?: number; height?: number; customClass?: string; caption?: string } }) => {
       if (!value?.asset) return null;
       return (
         <figure>
@@ -21,17 +21,21 @@ export const portableTextComponents = {
         </figure>
       );
     },
-    table: ({ value }: any) => <TableBlock value={value} />,
-    highlightBlock: ({ value }: any) => {
-      return <HighlightBlock highlightText={value.highlightText} bgColor={value.bgColor} textColor={value.textColor} />;
+    table: ({ value }: { value: unknown }) => <TableBlock value={value as any} />,
+    highlightBlock: ({ value }: { value: { highlightText?: string; bgColor?: string | { hex: string }; textColor?: string | { hex: string } } }) => {
+      return <HighlightBlock 
+        highlightText={value.highlightText} 
+        bgColor={typeof value.bgColor === 'string' ? { hex: value.bgColor } : value.bgColor} 
+        textColor={typeof value.textColor === 'string' ? { hex: value.textColor } : value.textColor} 
+      />;
     },
   },
   marks: {
-    link: ({ children, value }: any) => {
-      const { href, target } = value;
+    link: ({ children, value }: { children: React.ReactNode; value?: { href?: string; target?: string } }) => {
+      const { href, target } = value || {};
       return (
         <a
-          href={href}
+          href={href || '#'}
           target={target}
           rel={target === '_blank' ? 'noopener noreferrer' : undefined}
           className="portable-text-link"

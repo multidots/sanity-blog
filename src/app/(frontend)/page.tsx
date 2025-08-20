@@ -57,13 +57,13 @@ export default async function Page({ params }: RouteProps) {
 
     // Find the ClientList block and extract logo URLs for preloading
     const clientListBlock = homePage?.content?.find(
-        (block: any) => block && block._type === 'clientList'
-    ) as { logos?: any[] } | undefined;
+        (block: unknown) => block && typeof block === 'object' && block !== null && 'logos' in block && '_type' in block && (block as { _type: string })._type === 'clientList'
+    ) as { logos?: unknown[] } | undefined;
 
     const logoUrls = Array.isArray(clientListBlock?.logos)
         ? clientListBlock.logos
-            .filter((logo: any) => logo.asset)
-            .map((logo: any) => urlFor(logo).url())
+            .filter((logo: unknown) => logo && typeof logo === 'object' && logo !== null && 'asset' in logo && logo.asset)
+            .map((logo: unknown) => urlFor(logo as { asset: unknown }).url())
             .filter(Boolean)
         : [];
 

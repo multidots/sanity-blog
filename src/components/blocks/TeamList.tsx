@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
@@ -37,7 +36,7 @@ export default function TeamList({
                 {title && <h2>{title}</h2>}
                 <div className="team-grid">
                     {team && team.map((member: TeamItem) => (
-                        <div className="team-member" key={member._key} style={{ backgroundColor: member.bgColor?.hex }}>
+                        <div className="team-member" key={member._key} style={{ backgroundColor: member.icon?.bgColor?.hex }}>
                             {member.icon && <Image src={urlFor(member.icon).url()}
                                 alt={member.icon.alt || member.name}
                                 width={member.icon.width || 100}

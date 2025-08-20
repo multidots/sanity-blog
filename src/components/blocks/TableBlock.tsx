@@ -4,7 +4,7 @@ import { portableTextComponents } from '../PortableTextComponents';
 
 interface TableCell {
   _type: 'cell';
-  content: any[];
+  content: unknown[];
   isHeader?: boolean;
 }
 
@@ -45,9 +45,9 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
   const headerRows = rows.filter((row) => row.cells?.some((cell) => cell.isHeader));
   const bodyRows = rows.filter((row) => !row.cells?.some((cell) => cell.isHeader));
 
-  const renderCellContent = (content: any[] | undefined) => (
+  const renderCellContent = (content: unknown[] | undefined) => (
     Array.isArray(content) && content.length > 0
-      ? <PortableText value={content} components={portableTextComponents} />
+      ? <PortableText value={content as any} components={portableTextComponents} />
       : '\u00A0'
   );
 

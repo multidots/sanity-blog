@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from 'react';
 import { PortableText } from '@portabletext/react';
 import type { TypedObject } from '@portabletext/types';
@@ -43,18 +42,18 @@ export default function HeroBlock({
 
 
   const bgColor = typeof backgroundColor === 'string'
-    ? backgroundColor?.hex
+    ? backgroundColor
     : backgroundColor?.hex;
 
   const txtColor = typeof textColor === 'string'
-    ? textColor?.hex
+    ? textColor
     : textColor?.hex;
 
   const alignmentClass = alignment === 'left' ? 'text-left' : alignment === 'right' ? 'text-right' : 'text-center';
 
   const bgImageStyle = backgroundType === 'image' ? { background: `url(${urlFor(bgImage).url()}) no-repeat center center/cover` } : { backgroundColor: bgColor }
 
-  const combinedStyle = { textAlign: alignment }
+  const combinedStyle: React.CSSProperties = { textAlign: (alignment || 'center') as 'left' | 'right' | 'center' }
 
   return (
     <section className="hero" style={{ ...bgImageStyle, ...combinedStyle }}>

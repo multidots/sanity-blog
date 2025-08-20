@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 type TestimonialSliderType = {
     title: string;
-    testimonials: any[];
+    testimonials: { _key: string; name?: string; role?: string; testimonial?: string; quote?: string; author?: string; backgroundColor?: { hex: string }; image?: { asset?: unknown; alt?: string } }[];
 }
 
 export function TestimonialSlider({ title, testimonials }: TestimonialSliderType) {

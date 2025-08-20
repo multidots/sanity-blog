@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';

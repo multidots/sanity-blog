@@ -4,7 +4,7 @@ import { urlFor } from '@/sanity/lib/image';
 import Link from 'next/link';
 
 type HeaderProps = {
-    logo?: any;
+    logo?: { asset?: unknown; alt?: string; url?: string; openInNewTab?: boolean; width?: number; height?: number } | null;
     siteTitle?: string | null;
     menuItems?: Array<{
         title?: string | null;
