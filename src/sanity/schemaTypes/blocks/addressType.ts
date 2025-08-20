@@ -32,7 +32,7 @@ export const addressType = defineType({
             title: 'Address',
             group: 'content',
         }),
-        defineField({   
+        defineField({
             name: 'phone',
             type: 'string',
             title: 'Phone',
@@ -44,20 +44,68 @@ export const addressType = defineType({
             title: 'Email',
             group: 'contact',
         }),
-        // defineField({   
-        //     name: 'socialMedia',
-        //     type: 'array',
-        //     title: 'Social Media',
-        //     of: [{ type: 'reference', to: [{ type: 'socialMedia' }] }],
-        //     options: {
-        //         layout: 'grid',
-        //     },
-        // }),
-        // defineField({
-        //     name: 'googleMap',
-        //     type: 'latLong',
-        //     title: 'Google Map',
-        // }),
+        defineField({
+            name: 'googleMap',
+            type: 'geopoint',
+            title: 'Google Map',
+            group: 'contact',
+            validation: (Rule) => Rule.required().error('Google Map is required'),
+        }),
+        defineField({
+            name: 'socialLinks',
+            title: 'Social Links',
+            type: 'array',
+            group: 'contact',
+            validation: Rule => Rule.max(5),
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        {
+                            name: 'icon',
+                            title: 'Platform Icon',
+                            type: 'image',
+                            options: { hotspot: true },
+                            validation: Rule => Rule.required(),
+                            fields: [
+                                {
+                                    name: 'alt',
+                                    type: 'string',
+                                    title: 'Alternative Text',
+                                },
+                                {
+                                    name: 'width',
+                                    title: 'Image Width',
+                                    type: 'number'
+                                },
+                                {
+                                    name: 'height',
+                                    title: 'Image Height',
+                                    type: 'number'
+                                },
+                            ]
+                        },
+                        {
+                            name: 'url',
+                            title: 'URL',
+                            type: 'url',
+                            validation: Rule => Rule.required().uri({ scheme: ['http', 'https'] })
+                        },
+                    ],
+                    preview: {
+                        select: {
+                            url: 'url'
+                        },
+                        prepare({ url }) {
+                            return {
+                                title: url
+                            }
+                        }
+                    }
+                },
+            ],
+        }),
+
     ],
     preview: {
         select: {

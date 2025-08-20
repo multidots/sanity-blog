@@ -19,6 +19,26 @@ export type Address = {
   address?: string;
   phone?: string;
   email?: string;
+  googleMap?: Geopoint;
+  socialLinks?: Array<{
+    icon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      width?: number;
+      height?: number;
+      _type: "image";
+    };
+    url?: string;
+    _key: string;
+  }>;
 };
 
 export type Team = {
@@ -815,6 +835,26 @@ export type HOME_PAGE_QUERYResult = {
       address?: string;
       phone?: string;
       email?: string;
+      googleMap?: Geopoint;
+      socialLinks?: Array<{
+        icon?: {
+          asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          width?: number;
+          height?: number;
+          _type: "image";
+        };
+        url?: string;
+        _key: string;
+      }>;
     } | {
       _key: string;
       _type: "clientList";
@@ -1066,6 +1106,26 @@ export type PAGE_QUERYResult = {
     address?: string;
     phone?: string;
     email?: string;
+    googleMap?: Geopoint;
+    socialLinks?: Array<{
+      icon?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        width?: number;
+        height?: number;
+        _type: "image";
+      };
+      url?: string;
+      _key: string;
+    }>;
   } | {
     _key: string;
     _type: "clientList";
