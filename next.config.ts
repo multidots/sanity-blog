@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     },
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    // ignoreDuringBuilds: true,
   },
 };
 

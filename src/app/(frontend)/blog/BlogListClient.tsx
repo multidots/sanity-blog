@@ -3,13 +3,11 @@
 import { useEffect, useState } from 'react';
 import { POSTS_QUERY, POSTS_COUNT_QUERY, SITE_SETTINGS_QUERY } from '@/sanity/lib/queries';
 import { urlFor } from '@/sanity/lib/image';
-import Image from 'next/image';
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
 import CTABlock from '@/components/blocks/CTA';
-import { SiteSettings } from '@/sanity/types';
-// import '@/app/css/BlogList.css';
-
+import { SiteSettings, POSTS_QUERYResult } from '@/sanity/types';
+import Image from 'next/image';
 
 type Post = {
     _id: string;
@@ -121,17 +119,17 @@ export default function BlogListClient() {
 
             const postCount = await client.fetch(POSTS_COUNT_QUERY);
 
-            const fetchedPosts = await client.fetch(POSTS_QUERY, { start, end });
-            const postsData: PostData[] = fetchedPosts.map((post: unknown) => ({ // TODO: Use proper type from Sanity
-                _id: (post as any)._id,
-                title: (post as any).title,
-                slug: (post as any).slug ? { current: (post as any).slug.current } : null,
-                description: null, // Not included in POSTS_QUERY
-                publishedAt: (post as any).publishedAt,
-                mainImage: (post as any).mainImage,
-                categories: (post as any).categories ?? [],
-                author: (post as any).author ?? null,
-                _type: (post as any)._type || 'post',
+            const fetchedPosts: POSTS_QUERYResult = await client.fetch(POSTS_QUERY, { start, end });
+            const postsData: PostData[] = fetchedPosts.map((post) => ({
+                _id: post._id,
+                title: post.title,
+                slug: post.slug ? { current: post.slug.current } : null,
+                description: undefined, // This field is not in POSTS_QUERY, keeping undefined
+                publishedAt: post.publishedAt,
+                mainImage: post.mainImage,
+                categories: post.categories ?? [],
+                author: post.author ?? null,
+                _type: post._type,
             } as PostData));
             setPosts(postsData);
             setTotalPosts(postCount);
@@ -152,7 +150,7 @@ export default function BlogListClient() {
                             <article className="blog-card" key={index}>
                                 {post.mainImage && (
                                     <div className="blog-card-image">
-                                        <img src={urlFor(post.mainImage).url()} alt={post.title || ''} />
+                                        <Image src={urlFor(post.mainImage).url()} alt={post.title || ''} />
                                     </div>
                                 )}
                                 {post.title && (

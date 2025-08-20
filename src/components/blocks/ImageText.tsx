@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
@@ -36,11 +36,6 @@ const buttonStyle = {
     fontSize: '16px',
     fontWeight: 'bold',
     width: '50%',
-}
-const buttonStyleHover = {
-    backgroundColor: '#fff',
-    color: '#000',
-    border: '1px solid #000',
 }
 const aboutGridStyle = {
     display: 'flex',

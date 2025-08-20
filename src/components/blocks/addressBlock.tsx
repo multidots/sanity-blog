@@ -1,5 +1,6 @@
+import Image from 'next/image';
+
 export default function AddressBlock({ address, phone, email, socialMedia }: { address: string, phone: string, email: string, socialMedia: { _key: string; url: string; icon: string; name: string }[] }) {
-    console.log(address);
     return (
         <div className="contact-info">
             <div className="contact-info-left">
@@ -13,7 +14,7 @@ export default function AddressBlock({ address, phone, email, socialMedia }: { a
                         {socialMedia && socialMedia.map((social) => (
                             <li key={social._key}>
                                 <a href={social.url}>
-                                    <img src={social.icon} alt={social.name} />
+                                    <Image src={social.icon} alt={social.name} /> 
                                 </a>
                             </li>
                         ))}

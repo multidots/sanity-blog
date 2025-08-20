@@ -8,7 +8,6 @@ import { Metadata } from 'next';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import CTABlock from '@/components/blocks/CTA';
 import { portableTextComponents } from '@/components/PortableTextComponents';
-import Breadcrumb from '@/components/Breadcrumb';
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -73,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
 
     if (!post) notFound();
 
-    const firstCategory = post.categories && post.categories.length > 0 ? post.categories[0] : null;
+    // const firstCategory = post.categories && post.categories.length > 0 ? post.categories[0] : null;
 
     return (
         <>
@@ -82,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <div className="blog-detail-top-section">
                     {post.mainImage && (
                         <div className="blog-detail-feature-image">
-                            <img src={urlFor(post.mainImage).url()} alt={post.title || ''} className="blog-main-img" />
+                            <Image src={urlFor(post.mainImage).url()} alt={post.title || ''} className="blog-main-img" />
                         </div>
                     )}
                     {post.title && (

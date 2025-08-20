@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import TableBlock from './blocks/TableBlock';
 import HighlightBlock from './blocks/HighlightBlock';
+import { Table } from '@/sanity/types';
 
 export const portableTextComponents = {
   types: {
@@ -21,7 +22,7 @@ export const portableTextComponents = {
         </figure>
       );
     },
-    table: ({ value }: { value: unknown }) => <TableBlock value={value as any} />,
+    table: ({ value }: { value: Table }) => <TableBlock value={value} />,
     highlightBlock: ({ value }: { value: { highlightText?: string; bgColor?: string | { hex: string }; textColor?: string | { hex: string } } }) => {
       return <HighlightBlock 
         highlightText={value.highlightText} 

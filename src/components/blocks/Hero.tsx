@@ -1,10 +1,6 @@
 import React from 'react';
-import { PortableText } from '@portabletext/react';
-import type { TypedObject } from '@portabletext/types';
-import Image from 'next/image';
 import Link from 'next/link';
 import { urlFor } from '@/sanity/lib/image';
-import { useEffect, useRef } from 'react';
 
 type HeroBlockProps = {
   title: string;
@@ -49,7 +45,6 @@ export default function HeroBlock({
     ? textColor
     : textColor?.hex;
 
-  const alignmentClass = alignment === 'left' ? 'text-left' : alignment === 'right' ? 'text-right' : 'text-center';
 
   const bgImageStyle = backgroundType === 'image' ? { background: `url(${urlFor(bgImage).url()}) no-repeat center center/cover` } : { backgroundColor: bgColor }
 

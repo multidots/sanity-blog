@@ -1,31 +1,18 @@
 import React from 'react';
 import { PortableText } from 'next-sanity';
 import { portableTextComponents } from '../PortableTextComponents';
+import { Table, BlockContent } from '@/sanity/types';
 
-interface TableCell {
-  _type: 'cell';
-  content: unknown[];
-  isHeader?: boolean;
-}
-
-interface TableRow {
-  _type: 'row';
-  cells: TableCell[];
-}
-
-interface TableBlock {
-  _type: 'table';
-  rows: TableRow[];
-  caption?: string;
-}
+// Type alias for cell content from Sanity Table schema
+type CellContent = NonNullable<NonNullable<NonNullable<Table['rows']>[0]>['cells']>[0]['content'];
 
 interface TableBlockProps {
   // This component can be called either:
-  // 1. From PortableText with { value: TableBlock }
-  // 2. From PageBuilder with props spread directly (TableBlock interface)
-  value?: TableBlock;
+  // 1. From PortableText with { value: Table }
+  // 2. From PageBuilder with props spread directly (Table interface)
+  value?: Table;
   _type?: string;
-  rows?: TableRow[];
+  rows?: Table['rows'];
   caption?: string;
 }
 
@@ -45,9 +32,9 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
   const headerRows = rows.filter((row) => row.cells?.some((cell) => cell.isHeader));
   const bodyRows = rows.filter((row) => !row.cells?.some((cell) => cell.isHeader));
 
-  const renderCellContent = (content: unknown[] | undefined) => (
+  const renderCellContent = (content: CellContent) => (
     Array.isArray(content) && content.length > 0
-      ? <PortableText value={content as any} components={portableTextComponents} />
+      ? <PortableText value={content as BlockContent} components={portableTextComponents} />
       : '\u00A0'
   );
 
@@ -58,9 +45,9 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
           <thead>
             {headerRows.map((row, rowIndex) => (
               <tr key={`h-${rowIndex}`}>
-                {row.cells.map((cell, cellIndex) => (
+                {row.cells?.map((cell, cellIndex) => (
                   <th key={`h-${rowIndex}-${cellIndex}`}>{renderCellContent(cell.content)}</th>
-                ))}
+                )) || []}
               </tr>
             ))}
           </thead>
@@ -68,9 +55,9 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
         <tbody>
           {(headerRows.length > 0 ? bodyRows : rows).map((row, rowIndex) => (
             <tr key={`b-${rowIndex}`}>
-              {row.cells.map((cell, cellIndex) => (
+              {row.cells?.map((cell, cellIndex) => (
                 <td key={`b-${rowIndex}-${cellIndex}`}>{renderCellContent(cell.content)}</td>
-              ))}
+              )) || []}
             </tr>
           ))}
         </tbody>

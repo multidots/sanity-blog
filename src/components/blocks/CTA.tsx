@@ -1,6 +1,4 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
-import Link from 'next/link';
 import { urlFor } from '@/sanity/lib/image';
 
 type ButtonProps = {
