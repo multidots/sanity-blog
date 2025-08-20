@@ -8,10 +8,14 @@ import { Metadata } from 'next';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import CTABlock from '@/components/blocks/CTA';
 import { portableTextComponents } from '@/components/PortableTextComponents';
+import { Post, SiteSettings } from '@/sanity/types';
 
 type Props = {
     params: Promise<{ slug: string }>;
+    post: Post;
+    siteSettings: SiteSettings;
 };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
     const post = await client.fetch(SINGLE_POST_QUERY, { slug });
@@ -81,7 +85,13 @@ export default async function BlogPostPage({ params }: Props) {
                 <div className="blog-detail-top-section">
                     {post.mainImage && (
                         <div className="blog-detail-feature-image">
-                            <Image src={urlFor(post.mainImage).url()} alt={post.title || ''} className="blog-main-img" />
+                                <Image
+                                    src={urlFor(post.mainImage).url()}
+                                    alt={post.title || ''}
+                                    className="blog-main-img"
+                                    width={1200}
+                                    height={800}
+                                />
                         </div>
                     )}
                     {post.title && (

@@ -22,6 +22,8 @@ type Post = {
             _weak?: boolean;
         };
         alt?: string;
+        width?: number;
+        height?: number;
         _type: 'image';
     } | null;
     categories?: string[];
@@ -150,7 +152,12 @@ export default function BlogListClient() {
                             <article className="blog-card" key={index}>
                                 {post.mainImage && (
                                     <div className="blog-card-image">
-                                        <Image src={urlFor(post.mainImage).url()} alt={post.title || ''} />
+                                        <Image
+                                            src={urlFor(post.mainImage).url()}
+                                            alt={post.title || ''}
+                                            width={post.mainImage.width || 500}
+                                            height={post.mainImage.height || 500}
+                                        />
                                     </div>
                                 )}
                                 {post.title && (
