@@ -374,9 +374,6 @@ export type Post = {
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
-    caption?: string;
-    width?: number;
-    height?: number;
     _type: "image";
   };
   categories?: Array<{
@@ -1331,9 +1328,6 @@ export type POSTS_QUERYResult = Array<{
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
-    caption?: string;
-    width?: number;
-    height?: number;
     _type: "image";
   } | null;
   categories: Array<string | null> | null;
