@@ -8,12 +8,9 @@ import { Metadata } from 'next';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import CTABlock from '@/components/blocks/CTA';
 import { portableTextComponents } from '@/components/PortableTextComponents';
-import { Post, SiteSettings } from '@/sanity/types';
 
 type Props = {
     params: Promise<{ slug: string }>;
-    post: Post;
-    siteSettings: SiteSettings;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
