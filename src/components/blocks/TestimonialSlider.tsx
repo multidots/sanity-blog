@@ -20,6 +20,15 @@ export function TestimonialSlider({ title, testimonials }: TestimonialSliderType
         autoplaySpeed: 3000,
         draggable: true,
         gap: 20,
+        responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              }
+            }
+        ]
     }
 
     return (

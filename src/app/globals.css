@@ -7,18 +7,18 @@ h3{font-size:28px;line-height:38px;}
 p{font-size:20px;line-height:30px;margin:0 0 20px;color:#0A0B0C;}
 p:last-child{margin:0;}
 a{text-decoration:none;color:#fd5636;}
-img{height: auto;vertical-align: bottom;}
+img{vertical-align:middle;max-width:100%;height:auto;}
 ul,ol{padding-left:20px;margin-bottom:20px;}
 ul li,ol li{margin-bottom:8px;color:#0A0B0C;}
 button{background:#fd5636;color:#FFF;border:none;padding:15px 30px;font-size:20px;line-height:20px;border-radius:6px;cursor:pointer;font-weight:500;}
 button:hover{background:#fff;color:#0A0B0C;}
-section{margin:100px 0;box-sizing: border-box;}
+section{margin:100px 0;box-sizing:border-box;}
 div:has(section):nth-child(even) section{background:#f5f5f5;padding:100px 0;margin:0;}
 div:has(section):nth-child(odd) section{background:#FFF;}
 .container{max-width:1240px;margin:auto;padding:0 20px;box-sizing:border-box;width:100%;}
 
 /* ===== Header ===== */
-header{background:#0F172A;color:#fff;padding:15px 20px;position:fixed;top:0;z-index:100;color:#FFF;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;width: 100%;box-sizing: border-box;}
+header{background:#0F172A;color:#fff;padding:15px 20px;position:fixed;top:0;z-index:100;color:#FFF;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;width:100%;box-sizing:border-box;}
 header .logo{display:flex;align-items:center;}
 header .logo img{width:180px;vertical-align:bottom;}
 header h1{margin:0;}
@@ -36,39 +36,39 @@ footer .footer-right nav{display:flex;flex-direction:column;gap:10px;}
 footer .footer-right nav a{color:#FFF;}
 footer .footer-right .footer-social span{margin:0 0 10px 0;display:table;}
 footer .footer-right ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:15px;}
-footer .footer-right ul li{margin: 0;}
+footer .footer-right ul li{margin:0;}
 footer .footer-right ul li img{width:20px;filter:invert(1);}
-footer .copyrights-text{    font-size: 18px;color:#FFF;width:100%;border-top:1px solid rgba(255,255,255,0.2);padding:30px 0 0 0;margin:30px 0 0 0;text-align:center;}
+footer .copyrights-text{font-size:18px;color:#FFF;width:100%;border-top:1px solid rgba(255,255,255,0.2);padding:30px 0 0 0;margin:30px 0 0 0;text-align:center;}
 
 /* ===== Home Page CSS ===== */
-section.hero{height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;text-align:center;padding:0;width:100%;margin:0;}
+section.hero{height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;text-align:center;padding:73px 0 100px 0 !important;width:100%;margin:0;}
 section.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.6);}
 section.hero .container{position:relative;z-index:1;}
-section.hero h1{margin-bottom:15px;color:#FFF;}
-section.hero p{margin:15px 0 40px;color:#FFF;font-size: 24px;}
+section.hero h1{color:#FFF;}
+section.hero p{margin:15px 0 40px;color:#FFF;font-size:24px;}
 section.services{background:#f5f5f5;padding:100px 0;margin:0;text-align:center;}
-section.services .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+section.services .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 section.services .service-card{background:#fff;padding:30px 30px;border-radius:10px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.05);transition:transform 0.3s ease;}
 section.services .service-card:hover{transform:translateY(-6px);}
 section.services .service-card h3{color:#1E3A8A;}
 section.testimonials{background:#fff;}
 section.testimonials h2{text-align:center;margin-bottom:40px;color:#0F172A;}
-section.testimonials .slick-slider .slick-track{display: flex;gap: 30px;}
-section.testimonials .slick-slider .slick-dots{position:static;    margin: 30px auto 0;}
+section.testimonials .slick-slider .slick-track{display:flex;gap:30px;}
+section.testimonials .slick-slider .slick-dots{position:static;margin:30px auto 0;}
 section.testimonials .slick-slider .slick-dots li button{width:10px;height:10px;background:#BBB;border-radius:100px;padding:0;}
 section.testimonials .slick-slider .slick-dots li button::before{display:none;}
 section.testimonials .slick-slider .slick-dots li{width:10px;height:10px;margin:0 5px;}
 section.testimonials .slick-slider .slick-dots li.slick-active button{background:#000;}
 section.testimonials .testimonial{background:#FFF;padding:30px 30px;border-radius:10px;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
-section.testimonials .testimonial span{display:block;margin-top:15px;font-weight:700;color:#fd5636;font-size: 18px;line-height: normal;}
+section.testimonials .testimonial span{display:block;margin-top:15px;font-weight:700;color:#fd5636;font-size:18px;line-height:normal;}
 section.customers{background:#F1F5F9;text-align:center;}
 section.customers .customer-logos{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
-section.customers .customer-logos img{height:35px;opacity:0.8;transition:opacity 0.3s;}
+section.customers .customer-logos img{height:35px;opacity:0.8;transition:opacity 0.3s;width:100%;}
 section.customers .customer-logos img:hover{opacity:1;}
 section.footer-cta{position:relative;color:#fff;text-align:center;padding:50px 20px;}
 section.footer-cta::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.6);}
 section.footer-cta .container{position:relative;z-index:1;}
-section.footer-cta h2{color:#FFF;margin: 0;}
+section.footer-cta h2{color:#FFF;margin:0;}
 section.footer-cta p{margin:20px 0 40px;color:#FFF;}
 
 /* ===== About US page css ===== */
@@ -142,3 +142,75 @@ section.footer-cta p{margin:20px 0 40px;color:#FFF;}
 .highlight-block p:last-child{margin-bottom:0;}
 .highlight-block a{color:inherit;text-decoration:underline;font-weight:600;}
 .highlight-block strong{font-weight:700;}
+
+@media screen and (max-width:1024px){
+  h1{font-size:48px;line-height:60px;}
+  h2{font-size:32px;line-height:40px;margin:0 0 40px 0;}
+  h3{font-size:24px;line-height:32px;}
+  section{margin:80px 0;}
+  div:has(section):nth-child(even) section{padding:80px 0;}
+  header{padding:15px 20px;}
+  header nav a{font-size:18px;}
+  header .logo img{width:150px;}
+  footer{padding:40px 0;}
+  footer .footer-left{max-width:350px;}
+  footer .footer-left p{font-size:18px;line-height:26px;}
+  footer .footer-right{gap:60px;}
+  footer .copyrights-text{font-size:16px;line-height: normal;}
+  section.hero{padding: 73px 0 80px 0 !important;}
+  section.hero p{font-size:22px;}
+  section.customers .customer-logos img{height:30px;opacity:1;}
+  section.testimonials .slick-slider .slick-track{gap:20px;}
+  section.testimonials .testimonial span{font-size:16px;}
+  section.testimonials .slick-slider .slick-dots{margin:20px auto 0;}
+  section.footer-cta p{margin:20px 0 30px;}
+}
+@media screen and (max-width:991px){
+  section.services .service-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media screen and (max-width:767px){
+  body{font-size: 18px;}
+  h1{font-size:34px;line-height:44px;}
+  h2{        margin: 0 0 30px;
+    font-size: 26px;
+    line-height: 32px;}
+  h3{        font-size: 22px;
+    line-height: 28px;}
+    p{font-size: 18px;}
+  button{padding: 12px 20px;font-size: 18px;}
+  section{margin:50px 0;}
+  div:has(section):nth-child(even) section{padding:50px 0;}
+  header{padding:15px 20px;}
+  header nav a{font-size:18px;}
+  header .logo img{width:120px;}
+  footer{padding:30px 0;}
+  footer .footer-left{max-width:100%;margin: 0 0 30px 0;}
+  footer .footer-left h3 {
+ 
+    margin: 0 0 10px;
+}
+  footer .footer-left p{font-size: 16px;
+    line-height: 24px;}
+    footer .footer-right nav{gap: 15px;}
+  footer .footer-right{gap:60px;}
+  footer .footer-right nav a{font-size: 16px;line-height: normal;}
+  footer .footer-right .footer-social span{font-size: 16px;line-height: normal;}
+
+  section.hero{padding: 110px 0 50px !important;height: auto;}
+  section.hero p{font-size:20px;margin: 10px 0 30px;}
+  section.services .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 400px;
+    margin: 0 auto;
+}
+section.customers .customer-logos{    gap: 15px;
+  display: grid
+;
+  grid-template-columns: repeat(2, 1fr);gap: 30px 15px;}
+  section.customers .customer-logos img{height:30px;width: auto;}
+  section.testimonials .slick-slider .slick-track{gap:20px;}
+  section.testimonials .testimonial span{font-size:16px;}
+  section.testimonials .slick-slider .slick-dots{margin:20px auto 0;}
+  section.footer-cta p{margin:20px 0 30px;}
+}
