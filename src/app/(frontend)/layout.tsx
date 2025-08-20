@@ -8,7 +8,6 @@ import { FOOTER_QUERYResult } from "@/sanity/types";
 export default async function Layout({ children }: { children: React.ReactNode }) {
     const headerData = await client.fetch(HEADER_QUERY);
     const footerData: FOOTER_QUERYResult = await client.fetch(FOOTER_QUERY);
-
     return (    
         <div>
             <Header {...headerData} />
