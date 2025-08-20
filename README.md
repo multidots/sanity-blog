@@ -9,14 +9,69 @@ Modern, editor-friendly starter that pairs Next.js (App Router) with Sanity Stud
 - Blog with authors, categories, SEO, pagination-ready queries
 - Ready for Vercel deployment; environment-driven Sanity configuration
 
-## Quick start
+## Create a new project
+
+The easiest way to get started is using the CLI:
+
+```bash
+npx sanity-blog-theme my-blog-project
+cd my-blog-project
+```
+
+Or using your preferred package manager:
+
+```bash
+# npm
+npx sanity-blog-theme my-blog-project
+
+# yarn
+yarn create sanity-blog-theme my-blog-project
+
+# pnpm
+pnpm create sanity-blog-theme my-blog-project
+```
+
+This will:
+- Create a new directory with your project name
+- Copy all template files
+- **Interactive Sanity setup** - Configure your project with guided prompts
+- **Auto-generate .env.local** - No manual environment setup needed
+- Install dependencies automatically
+- Set up a proper `.gitignore` file
+- Update `package.json` with your project name
+
+### 🚀 Interactive Setup Process
+
+The CLI will guide you through:
+
+1. **Sanity Project Configuration** - Enter your project details:
+   - Project ID
+   - Dataset name (default: "production")
+   - API version (auto-suggested with current date)
+
+2. **Environment File Creation** - Choose to:
+   - Create `.env.local` with your actual project details
+   - Or get an `.env.example` template for manual setup
+
+3. **Ready to Go** - Your project will be fully configured and ready to run!
+
+## Manual setup (alternative)
+
+If you prefer to clone and set up manually:
 
 ### Prerequisites
 - Node.js LTS (v18+)
 - npm, pnpm, or yarn
 - A Sanity project (create one at `https://www.sanity.io/`)
 
-### 1) Configure environment
+### 1) Clone and install
+```bash
+git clone https://github.com/yourusername/sanity-blog-theme.git my-blog-project
+cd my-blog-project
+npm install
+```
+
+### 2) Configure environment
 Create `.env.local` in the project root:
 
 ```bash
@@ -27,12 +82,12 @@ NEXT_PUBLIC_SANITY_API_VERSION=2025-06-10
 
 Values are read from `src/sanity/env.ts`. If any are missing, the app will throw a clear error.
 
-### 2) Install and run
+### 3) Run the development server
 
 ```bash
-npm install
 npm run dev
-# or: pnpm install && pnpm dev
+# or: pnpm dev
+# or: yarn dev
 ```
 
 - App: `http://localhost:3000`

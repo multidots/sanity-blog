@@ -1,8 +1,36 @@
 {
   "name": "sanity-blog-theme",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
   "type": "module",
+  "description": "Sanity Blog Theme by Multidots",
+  "author": "Multidots",
+  "license": "MIT",
+  "bin": {
+    "sanity-blog-theme": "cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "sanity",
+    "starter",
+    "template",
+    "blog"
+  ],
+  "files": [
+    "src/**/*",
+    "public/**/*",
+    "package.json",
+    "README.md",
+    "cli.js",
+    "next.config.ts",
+    "tsconfig.json",
+    "eslint.config.mjs",
+    "postcss.config.mjs",
+    "sanity.config.ts",
+    "sanity.cli.ts",
+    "sanity-typegen.json"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -19,6 +47,7 @@
     "@sanity/vision": "^4.4.1",
     "next": "15.4.6",
     "next-sanity": "^10.0.10",
+    "prompts": "^2.4.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-refractor": "^3.1.1",
