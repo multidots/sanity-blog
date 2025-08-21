@@ -63,7 +63,11 @@ export default async function Page({ params }: RouteProps) {
     }
     return page?.content ? (
         <div className="main">
-            {formData && <ContactFormWrapper formData={formData} />}
+            <section className="contact-page-main">
+                <div className="container">
+                    {formData && <ContactFormWrapper formData={formData} />}
+                </div>        
+            </section>
             <PageBuilder
                 documentId={page._id}
                 documentType={page._type}

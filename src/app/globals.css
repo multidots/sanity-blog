@@ -18,7 +18,8 @@ section{margin:100px 0;box-sizing:border-box;}
 div:has(section):nth-child(even) section{background:#f5f5f5;padding:100px 0;margin:0;}
 div:has(section):nth-child(odd) section{background:#FFF;}
 .container{max-width:1240px;margin:auto;padding:0 20px;box-sizing:border-box;width:100%;}
-main{padding-top:73px;}
+main,.main{padding-top:73px;}
+.main main,main .main{padding:0;}
 
 /* ===== Header ===== */
 header{background:#0F172A;color:#fff;position:fixed;top:0;z-index:100;color:#FFF;padding:15px 0;width:100%;box-sizing:border-box;}
@@ -28,7 +29,7 @@ header .logo img{width:180px;vertical-align:bottom;}
 header h1{margin:0;}
 header nav a{color:white;margin:0 15px;font-weight:500;transition:color 0.3s;}
 header nav a:hover{color:#fd5636;}
-header .hamburger-menu{display: none;}
+header .hamburger-menu{display:none;}
 
 /* ===== Footer ===== */
 footer{background:#0F172A;color:white;padding:60px 0;}
@@ -168,6 +169,21 @@ section.team .team-member h3{margin:0 0 10px 0;}
 .highlight-block a{color:inherit;text-decoration:underline;font-weight:600;}
 .highlight-block strong{font-weight:700;}
 
+/* ===== Contact us page ===== */
+.contact-page-main{background:#f5f5f5;}
+.contact-page-main form{flex-shrink:0;width:100%;max-width:100%;padding:0;border:0;border-radius:0;background:transparent;display:flex;gap:30px;flex-wrap:wrap;margin: 0;}
+.contact-page-main form div{margin:0;width:calc(50% - 15px);}
+.contact-page-main form label{font-size:16px;line-height:100%;font-weight:500;color:#262832;margin:0 0 10px 0;display:table;}
+.contact-page-main form input,.contact-page-main form textarea{padding:15px 15px;border:1px solid rgba(38,40,50,.2);border-radius:6px;font-size:16px;line-height:100%;color:rgba(48,48,52,.6);background:#fff;width:100%;box-sizing:border-box;outline:none;box-shadow:none;}
+.contact-page-main form div:has(textarea){width:100%;}
+.contact-page-main form button{background:#fd5636;color:#FFF;border:none;padding:15px 30px;font-size:20px;line-height:20px;border-radius:6px;cursor:pointer;font-weight:500;display:table;}
+.contact-page-main form button:hover{background:#fff;color:#0A0B0C;}
+.contact-info-main .contact-info{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.contact-info-main .contact-info .contact-info-left{width:400px;flex-shrink:0;}
+.contact-info-main .contact-info .contact-info-left h2{margin:0 0 30px 0;display:table;}
+.contact-info-main .contact-info .contact-info-left p{color:#0a0b0c;margin:0 0 15px;font-size:18px;line-height:30px;}
+.contact-info-main .contact-info .contact-info-left .form-social ul{margin:0;padding:0;}
+.contact-info-main .contact-info .map{width:100%;}
 @media screen and (max-width:1024px){
   h1{font-size:48px;line-height:60px;}
   h2{font-size:32px;line-height:40px;margin:0 0 40px 0;}
@@ -199,6 +215,8 @@ section.team .team-member h3{margin:0 0 10px 0;}
   .blog-detail .blog-detail-content h2{margin:30px 0 20px;}
   .blog-detail .blog-detail-content h3{margin:25px 0 15px;}
   .blog-detail .blog-detail-content h4{margin:0 0 10px 0;}
+  .contact-info-main .contact-info .contact-info-left{width: 300px;}
+  .contact-info-main .contact-info .contact-info-left h2{margin: 0 0 20px 0;}
 }
 @media screen and (max-width:991px){
   section.services .service-grid{grid-template-columns:repeat(2,1fr);}
@@ -211,12 +229,12 @@ section.team .team-member h3{margin:0 0 10px 0;}
   p{margin:0 0 15px;}
   button,.button-main{padding:12px 20px;font-size:18px;}
   section{margin:50px 0;}
-  main{padding-top:60px;}
+  main,.main{padding-top:60px;}
   div:has(section):nth-child(even) section{padding:50px 0;}
   header{padding:15px 20px;}
   header nav a{font-size:18px;}
   header .logo img{width:120px;}
-  header .hamburger-menu{position:relative;width:32;height:32;font-size:inherit;transition:all 0.3s ease;cursor:pointer;display: block;}
+  header .hamburger-menu{position:relative;width:32;height:32;font-size:inherit;transition:all 0.3s ease;cursor:pointer;display:block;}
   header .hamburger-menu span{position:absolute;right:0;width:100%;height:4px;border-radius:0.125em;background:currentColor;transition:inherit;}
   header .hamburger-menu span:nth-child(1){top:4px;}
   header .hamburger-menu span:nth-child(2){top:14px;}
@@ -262,6 +280,15 @@ section.team .team-member h3{margin:0 0 10px 0;}
   .blog-detail .blog-detail-content .sanity-block-table table thead tr th,.blog-detail-main .blog-detail-content-main table thead tr th *{font-size:18px;line-height:22px;}
   .blog-detail .blog-detail-content .sanity-block-table table tbody tr td{padding:10px 15px;}
   .blog-detail .blog-detail-content .sanity-block-table table tbody tr td,.blog-detail-main .blog-detail-content-main table tbody tr td *{font-size:16px;line-height:26px;}
+  .contact-page-main form{gap: 20px;}
+  .contact-page-main form div{width: calc(50% - 10px);}
+  .contact-page-main form label{margin: 0 0 7px 0;}
+  .contact-page-main form input, .contact-page-main form textarea{padding: 12px 12px;}
+  .contact-page-main form button{padding:12px 20px;font-size:18px;}
+  .contact-info-main .contact-info{flex-wrap: wrap;gap: 30px;}
+  .contact-info-main .contact-info .contact-info-left {
+    width: 100%;
+}
 }
 @media screen and (max-width:600px){
   .blog-listing .blog-grid{align-items:center;}
@@ -271,6 +298,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
   .blog-listing .blog-card .blog-content{padding:20px 20px;}
   .blog-listing .blog-card .blog-content .blog-date{font-size:15px;}
   .blog-listing .blog-card .blog-content a{font-size:16px;}
+  .contact-page-main form div{width: 100%;}
 }
 @media screen and (max-width:480px){
   section.team .team-grid{grid-template-columns:repeat(1,1fr);}
