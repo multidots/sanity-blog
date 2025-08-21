@@ -72,7 +72,7 @@ export default async function Page({ params }: RouteProps) {
         </div>
     ) : null;
 }
-export async function getContactForm(formId: string) {
+async function getContactForm(formId: string) {
     try {
         const [formData, formSettings] = await Promise.all([
             client.fetch(CONTACT_FORM_QUERY, { formId }),
