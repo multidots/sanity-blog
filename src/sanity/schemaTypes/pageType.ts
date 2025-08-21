@@ -15,11 +15,6 @@ export const pageType = defineType({
             name: "seo",
             title: "SEO",
         },
-        {
-            name: "meta",
-            title: "Meta",
-        },
-        
     ],
     fields: [
         defineField({
@@ -38,7 +33,7 @@ export const pageType = defineType({
             },
             title: "Slug",
             description: "The URL slug for this page. It will be generated from the title but can be customized.",
-            group: "meta",
+            group: "content",
             validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -60,7 +55,7 @@ export const pageType = defineType({
             description: "SEO settings for this page. If not provided, the title and description will be used.",
             options: {
                 collapsible: true,
-                collapsed: true,
+                collapsed: false,
             },
             group: "seo",
         }),

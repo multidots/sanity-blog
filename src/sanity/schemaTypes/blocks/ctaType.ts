@@ -38,7 +38,7 @@ export const ctaBlockType = defineType({
             title: 'Button',
             group: "content",
             type: 'object',
-            options: { collapsible: true, collapsed: true, columns: 2 },
+            options: { collapsible: true, collapsed: false },
             fields: [
                 defineField({
                     name: 'text',

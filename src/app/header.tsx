@@ -28,21 +28,23 @@ export default function Header({ logo, siteTitle, menuItems }: HeaderProps) {
                 <div className="logo">
                     <Link href={normalizeHref(logo.url)} target={logo.openInNewTab ? '_blank' : '_self'}>
                         <Image src={urlFor(logo).url()}
-                            alt={siteTitle || 'Logo'}
+                            alt={logo.alt || 'Logo'}
                             width={logo.width || 180}
                             height={logo.height || 40} />
                     </Link>
                 </div>
             )}
-            <nav>
-                {menuItems?.map((item) => (
-                    <Link href={normalizeHref(item.url)}
-                        target={item.openInNewTab ? '_blank' : '_self'}
-                        key={item.title}>
-                        {item.title}
-                    </Link>
-                ))}
-            </nav>
+            {menuItems && (
+                <nav>
+                    {menuItems?.map((item) => (
+                        <Link href={normalizeHref(item.url)}
+                            target={item.openInNewTab ? '_blank' : '_self'}
+                            key={item.title}>
+                            {item.title}
+                        </Link>
+                    ))}
+                </nav>
+            )}
         </header>
     );
 }
