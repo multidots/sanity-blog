@@ -3,7 +3,7 @@
 Modern, editor-friendly starter that pairs Next.js (App Router) with Sanity Studio v3. It ships with a flexible Page Builder, a blog, SEO fields, and a curated Studio experience (Desk structure, grouped fields, icons, and collapsible inputs).
 
 ### Highlights
-- Page Builder with reusable blocks (Hero, CTA, Image & Text, List, Client Logos, Services, Testimonials, Team, Address, Table)
+- Page Builder with reusable blocks (Hero, CTA, Image & Text, Client Logos, Services, Testimonials, Team, Address)
 - Organized editor UX: field groups, collapsible sections, sensible defaults, previews
 - Sanity Studio embedded at `/studio` with a custom content structure
 - Blog with authors, categories, SEO, pagination-ready queries
@@ -99,6 +99,7 @@ npm run dev
 - Config: `sanity.config.ts`
 - Schemas: `src/sanity/schemaTypes/`
 - Custom Desk structure: `src/sanity/structure.ts`
+- Contact Form: `@multidots/sanity-plugin-contact-form` integration
 
 Studio is mounted at `/studio` via the Next.js App Router integration.
 
@@ -116,19 +117,17 @@ Objects and blocks
   - `hero`: Headline/subtitle, background (image/color), alignment, colors
   - `ctaBlock`: Heading, Subheading, Button (text/link/new tab), background (image/color), text color
   - `imageTextSection`: Title, portable description, main image (+alt/size), image position, button
-  - `List`: Title/description, items (icon + text)
   - `clientList`: Title, logos (image + url/new tab)
   - `services`: Title, services (title, text, background color)
   - `testimonialSlider`: Title, testimonials (quote, author)
   - `team`: Title, team (name, role, image, bg color)
   - `address`: Title, address, phone, email
-  - `table`: Rich-content cells and caption
-- `blockContent`: Portable Text with basic marks, images, CTAs, table, highlight, etc.
+- `blockContent`: Portable Text with basic marks, images, CTAs, etc.
 - `seo`: Title override, description, image, noindex
 
 Icons
 - Blocks use icons from `@sanity/icons` for a clearer insert menu and arrays.
-  - For example: `hero` (TextIcon), `ctaBlock` (BlockContentIcon), `table` (TabletDeviceIcon), `team` (UsersIcon), `address` (PinIcon)
+  - For example: `hero` (TextIcon), `ctaBlock` (BlockContentIcon), `team` (UsersIcon), `address` (PinIcon)
   - Change icons in each block schema under `src/sanity/schemaTypes/blocks/*Type.ts`.
 
 ### Desk structure
@@ -145,6 +144,17 @@ Defined in `src/sanity/structure.ts`:
   - Maps each `_type` in the `pageBuilder` array to a React component in `src/components/blocks/*`
   - Includes in-place editing data attributes via `next-sanity` for a smoother authoring workflow
 
+### Mobile Navigation
+- Responsive hamburger menu with smooth slide animations
+- Vertical mobile menu layout with professional styling
+- Touch-friendly interactions and accessibility features
+- Auto-close on navigation and click outside
+
+### Contact Form System
+- **Plugin**: `@multidots/sanity-plugin-contact-form` v1.0.5
+- **Features**: Dynamic forms, file upload, reCAPTCHA, email notifications
+- **Documentation**: [Plugin Documentation](https://www.npmjs.com/package/@multidots/sanity-plugin-contact-form)
+
 ### Queries
 Queries live in `src/sanity/lib/queries.ts` and cover header/footer, sitemap, pages, posts, and settings.
 
@@ -153,7 +163,6 @@ Queries live in `src/sanity/lib/queries.ts` and cover header/footer, sitemap, pa
 - `SITE_SETTINGS_QUERY`, `HEADER_QUERY`, `FOOTER_QUERY` load global UI config
 - `SITEMAP_QUERY` returns URLs and update dates for pages and posts
 
-Note: Some optional fields appear in queries (e.g., `scheduleCallTitle`, `scheduleCallUrl`, `hideHeader`, `hideFooter`). If you want to use them, add those fields to `siteSettings` or `page` schemas accordingly.
 
 ## Using the Page Builder
 
@@ -165,6 +174,10 @@ Note: Some optional fields appear in queries (e.g., `scheduleCallTitle`, `schedu
 Insert menu previews
 - `pageBuilder` is configured to show grid previews if you add optional images at: `/public/block-previews/{schemaType}.png`
   - Example: `/public/block-previews/hero.png`
+
+## Contact Form Plugin
+
+The project includes `@multidots/sanity-plugin-contact-form` for dynamic form creation and management. For detailed setup and usage instructions, visit the [plugin documentation](https://www.npmjs.com/package/@multidots/sanity-plugin-contact-form).
 
 ## Blog
 
@@ -212,6 +225,8 @@ Each `page` and `post` has an `seo` object. Queries coalesce page/post title/des
 5) (Optional) Insert menu preview
 - Add `/public/block-previews/yourBlock.png` to visualize the block in the Studio insert grid
 
+**Current Available Blocks**: `hero`, `ctaBlock`, `imageTextSection`, `clientList`, `services`, `testimonialSlider`, `team`, `address`
+
 ## Development
 
 Common commands
@@ -223,21 +238,8 @@ npm run start    # Start production server
 
 Sanity configuration
 - Project/API vars are set via `src/sanity/env.ts`
-- Studio plugins: Structure tool, Vision, Color input
+- Studio plugins: Structure tool, Vision, Color input, Contact Form plugin
 
-## Deployment
-
-### Vercel (recommended)
-1) Push your repo to GitHub/GitLab/Bitbucket
-2) Import the project in Vercel
-3) Set environment variables in Vercel Project Settings → Environment Variables:
-   - `NEXT_PUBLIC_SANITY_PROJECT_ID`
-   - `NEXT_PUBLIC_SANITY_DATASET`
-   - `NEXT_PUBLIC_SANITY_API_VERSION`
-4) Deploy
-
-Sanity CORS
-- Add your production domain to the Sanity project CORS origins in the Sanity manage dashboard, so frontend queries can resolve in production.
 
 ## Troubleshooting
 
@@ -247,8 +249,9 @@ Sanity CORS
   - Ensure the type is exported in `src/sanity/schemaTypes/index.ts`
 - Insert menu previews not visible
   - Ensure `/public/block-previews/{schemaType}.png` exists and is correctly named
-- Optional fields in queries
-  - If you see references to `scheduleCallTitle`, `scheduleCallUrl`, `hideHeader`, `hideFooter`, you can add those fields to schemas to enable them
+
+
+
 
 ## License
 

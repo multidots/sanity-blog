@@ -3,8 +3,6 @@ import { defineQuery } from 'next-sanity'
 export const HEADER_QUERY = defineQuery(`*[_type == "siteSettings" && _id == "siteSettings"][0]{ 
   siteTitle,
   logo,
-  scheduleCallTitle,
-  scheduleCallUrl,
   menuItems[] {
     title,
     url,
@@ -19,8 +17,6 @@ export const HOME_PAGE_QUERY = defineQuery(`*[_id == "siteSettings"][0]{
     _type,
     title,
     "slug": slug.current,
-    hideHeader,
-    hideFooter,
   homePage->{
     ...,
     "seo": {

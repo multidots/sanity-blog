@@ -95,11 +95,7 @@ export type PageBuilder = Array<{
   _key: string;
 } & Team | {
   _key: string;
-} & Address | {
-  _key: string;
-} & HighlightBlock | {
-  _key: string;
-} & Table>;
+} & Address>;
 
 export type SiteSettings = {
   _id: string;
@@ -121,6 +117,7 @@ export type SiteSettings = {
     alt?: string;
     width?: number;
     height?: number;
+    url?: string;
     _type: "image";
   };
   menuItems?: Array<{
@@ -753,7 +750,7 @@ export type AllSanitySchemaTypes = Address | Team | TestimonialSlider | PageBuil
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: HEADER_QUERY
-// Query: *[_type == "siteSettings" && _id == "siteSettings"][0]{   siteTitle,  logo,  scheduleCallTitle,  scheduleCallUrl,  menuItems[] {    title,    url,    openInNewTab,  },  }
+// Query: *[_type == "siteSettings" && _id == "siteSettings"][0]{   siteTitle,  logo,  menuItems[] {    title,    url,    openInNewTab,  },  }
 export type HEADER_QUERYResult = {
   siteTitle: string | null;
   logo: {
@@ -769,10 +766,9 @@ export type HEADER_QUERYResult = {
     alt?: string;
     width?: number;
     height?: number;
+    url?: string;
     _type: "image";
   } | null;
-  scheduleCallTitle: null;
-  scheduleCallUrl: null;
   menuItems: Array<{
     title: string | null;
     url: string | null;
@@ -814,78 +810,60 @@ export type FOOTER_QUERYResult = {
   } | null;
 } | null;
 // Variable: HOME_PAGE_QUERY
-// Query: *[_id == "siteSettings"][0]{    _id,    _type,    title,    "slug": slug.current,    hideHeader,    hideFooter,  homePage->{    ...,    "seo": {    "title": coalesce(seo.title, title, ""),     "description": coalesce(seo.description,  ""),    "image": seo.image,    "noIndex": seo.noIndex == true  },    content[]{      ...,    }        }}
+// Query: *[_id == "siteSettings"][0]{    _id,    _type,    title,    "slug": slug.current,  homePage->{    ...,    "seo": {    "title": coalesce(seo.title, title, ""),     "description": coalesce(seo.description,  ""),    "image": seo.image,    "noIndex": seo.noIndex == true  },    content[]{      ...,    }        }}
 export type HOME_PAGE_QUERYResult = {
   _id: string;
   _type: "author";
   title: null;
   slug: string | null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "category";
   title: string | null;
   slug: string | null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "contactForm";
   title: string | null;
   slug: null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "formGeneralSettings";
   title: null;
   slug: null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "page";
   title: string | null;
   slug: string | null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "post";
   title: string | null;
   slug: string | null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "sanity.fileAsset";
   title: string | null;
   slug: null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "sanity.imageAsset";
   title: string | null;
   slug: null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: null;
 } | {
   _id: string;
   _type: "siteSettings";
   title: null;
   slug: null;
-  hideHeader: null;
-  hideFooter: null;
   homePage: {
     _id: string;
     _type: "page";
@@ -1002,29 +980,6 @@ export type HOME_PAGE_QUERYResult = {
       alignment?: "center" | "left" | "right";
     } | {
       _key: string;
-      _type: "highlightBlock";
-      highlightText?: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }>;
-      bgColor?: Color;
-      textColor?: Color;
-    } | {
-      _key: string;
       _type: "imageTextSection";
       title?: string;
       description?: Array<{
@@ -1077,37 +1032,6 @@ export type HOME_PAGE_QUERYResult = {
         _type: "service";
         _key: string;
       }>;
-    } | {
-      _key: string;
-      _type: "table";
-      rows?: Array<{
-        cells?: Array<{
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?: "em" | "normal" | "strong";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
-          isHeader?: boolean;
-          _type: "cell";
-          _key: string;
-        }>;
-        _type: "row";
-        _key: string;
-      }>;
-      caption?: string;
     } | {
       _key: string;
       _type: "team";
@@ -1273,29 +1197,6 @@ export type PAGE_QUERYResult = {
     alignment?: "center" | "left" | "right";
   } | {
     _key: string;
-    _type: "highlightBlock";
-    highlightText?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    bgColor?: Color;
-    textColor?: Color;
-  } | {
-    _key: string;
     _type: "imageTextSection";
     title?: string;
     description?: Array<{
@@ -1348,37 +1249,6 @@ export type PAGE_QUERYResult = {
       _type: "service";
       _key: string;
     }>;
-  } | {
-    _key: string;
-    _type: "table";
-    rows?: Array<{
-      cells?: Array<{
-        content?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "em" | "normal" | "strong";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
-        isHeader?: boolean;
-        _type: "cell";
-        _key: string;
-      }>;
-      _type: "row";
-      _key: string;
-    }>;
-    caption?: string;
   } | {
     _key: string;
     _type: "team";
@@ -1698,9 +1568,9 @@ export type SITE_SETTINGS_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"siteSettings\" && _id == \"siteSettings\"][0]{ \n  siteTitle,\n  logo,\n  scheduleCallTitle,\n  scheduleCallUrl,\n  menuItems[] {\n    title,\n    url,\n    openInNewTab,\n  },\n  }": HEADER_QUERYResult;
+    "*[_type == \"siteSettings\" && _id == \"siteSettings\"][0]{ \n  siteTitle,\n  logo,\n  menuItems[] {\n    title,\n    url,\n    openInNewTab,\n  },\n  }": HEADER_QUERYResult;
     "*[_type == \"siteSettings\" && _id == \"siteSettings\"][0]{\n  footer }": FOOTER_QUERYResult;
-    "*[_id == \"siteSettings\"][0]{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current,\n    hideHeader,\n    hideFooter,\n  homePage->{\n    ...,\n    \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n     \"description\": coalesce(seo.description,  \"\"),\n    \"image\": seo.image,\n    \"noIndex\": seo.noIndex == true\n  },\n    content[]{\n      ...,\n    }      \n  }\n}": HOME_PAGE_QUERYResult;
+    "*[_id == \"siteSettings\"][0]{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current,\n  homePage->{\n    ...,\n    \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n     \"description\": coalesce(seo.description,  \"\"),\n    \"image\": seo.image,\n    \"noIndex\": seo.noIndex == true\n  },\n    content[]{\n      ...,\n    }      \n  }\n}": HOME_PAGE_QUERYResult;
     "*[_type==\"page\" && slug.current == $slug][0]{\n   _id,\n    _type,\n    title,\n    \"slug\": slug.current,\n    content[]{\n      ...,\n    },\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description, \"\"),\n      \"image\": seo.image,\n      \"noIndex\": seo.noIndex == true\n    },\n    hideHeader,\n    hideFooter,\n    contactForm\n}": PAGE_QUERYResult;
     "\n  *[_type in [\"page\", \"post\"] && defined(slug.current)] {\n      \"href\": select(\n        _type == \"page\" => \"/\" + slug.current,\n        _type == \"post\" => \"/posts/\" + slug.current,\n        slug.current\n      ),\n      _updatedAt\n  }\n  ": SITEMAP_QUERYResult;
     "* [_type == \"post\"] | order(publishedAt desc) {\n  _id,\n  title,\n  slug,\n  publishedAt,\n  mainImage,\n  categories[]->{\n    _id,\n    title\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    image\n  },\n  \"categories\": categories[]->title,\n  _type // Add this line\n}[$start...$end]": POSTS_QUERYResult;
