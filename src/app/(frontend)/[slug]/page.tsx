@@ -62,7 +62,7 @@ export default async function Page({ params }: RouteProps) {
         return null;
     }
     return page?.content ? (
-        <div style={{ marginTop: '100px' }}>
+        <div>
             {formData && <ContactFormWrapper formData={formData} />}
             <PageBuilder
                 documentId={page._id}

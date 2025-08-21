@@ -26,23 +26,6 @@ type ImageTextSectionProps = {
     imagePosition?: 'left' | 'right';
     button?: ButtonProps; // Changed from buttons[] to single button
 };
-// add style for the button
-const buttonStyle = {
-    backgroundColor: '#000',
-    color: '#fff',
-    padding: '10px 20px',
-    borderRadius: '5px',
-    textDecoration: 'none',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    width: '50%',
-}
-const aboutGridStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-}
 
 
 export default function ImageTextSection({
@@ -56,14 +39,14 @@ export default function ImageTextSection({
     return (
         <section className="about-intro">
             <div className="container">
-                <div className="about-grid" style={{...aboutGridStyle, flexDirection: imagePosition === 'left' ? 'row-reverse' : 'row'}}>
+                <div className="about-grid" style={{flexDirection: imagePosition === 'left' ? 'row-reverse' : 'row'}}>
                     <div className="about-text">
                         {title && <h1>{title}</h1>}
                         {description && (
                             <PortableText value={description} />
                         )}
                         {button && (
-                            <div className="about-button" style={buttonStyle}>
+                            <div className="about-button button-main">
                                 <Link href={button.link} target={button.openInNewTab ? '_blank' : '_self'}>
                                     {button.text}
                                 </Link>
