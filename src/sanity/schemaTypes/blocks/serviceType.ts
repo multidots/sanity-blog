@@ -3,6 +3,7 @@ import { TaskIcon } from '@sanity/icons'
 
 export const serviceType = defineType({
     name: "services",
+    title: "Services Block",
     type: "object",
     icon: TaskIcon,
     groups: [

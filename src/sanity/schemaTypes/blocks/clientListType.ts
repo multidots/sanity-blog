@@ -4,7 +4,7 @@ import { ImagesIcon } from '@sanity/icons'
 
 export const clientList = defineType({
     name: 'clientList',
-    title: 'Client List',
+    title: 'Client List Block',
     type: 'object',
     icon: ImagesIcon,
     groups: [

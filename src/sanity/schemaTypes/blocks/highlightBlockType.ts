@@ -36,7 +36,7 @@ export const highlightBlockType = defineType({
     ],
     preview: {
         select: {
-            highlightText: 'highlightText',
+            title: 'highlightText',
         },
         prepare() {
             return {

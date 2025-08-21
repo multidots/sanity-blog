@@ -3,6 +3,7 @@ import { TextIcon } from "@sanity/icons";
 
 export const heroType = defineType({
     name: "hero",
+    title: "Hero Block",
     type: "object",
     groups: [
         {
@@ -106,11 +107,13 @@ export const heroType = defineType({
     preview: {
         select: {
             title: "title",
-            media: "bgImage",
+            subtitle: "subtitle",
+            media: "bgImage",   
         },
-        prepare({ title, media }) {
+        prepare({ title, subtitle, media }) {
             return {
-                title: title ?? "Hero Block",
+                title: "Hero Block",
+                subtitle: title ?? subtitle ?? "Hero Block",   
                 media: media ?? TextIcon,
             };
         },

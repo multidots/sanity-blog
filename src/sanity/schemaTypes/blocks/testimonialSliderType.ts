@@ -3,7 +3,7 @@ import { StarIcon } from '@sanity/icons'
 
 export const testimonialSlider = defineType({
     name: 'testimonialSlider',
-    title: 'Testimonial Slider',
+    title: 'Testimonial Slider Block',
     type: 'object',
     icon: StarIcon,
     groups: [
