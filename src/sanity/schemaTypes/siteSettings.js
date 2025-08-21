@@ -42,6 +42,17 @@ const siteSettings = {
                     title: 'Image Height',
                     type: 'number'
                 },
+                {
+                    name: 'url',
+                    title: 'URL',
+                    type: 'url',
+                    validation: (Rule) =>
+                        Rule.uri({
+                            allowRelative: true,
+                            scheme: ['https', 'http', 'mailto', 'tel'],
+                        }).required(),
+                    description: 'Can be relative (/about) or absolute (https://...)',
+                },
             ]
         },
         {

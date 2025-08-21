@@ -19,9 +19,7 @@ export const pageBuilderType = defineType({
         }),
         defineArrayMember({ type: "testimonialSlider" }),
         defineArrayMember({ type: "team" }),
-        defineArrayMember({ type: "address" }),
-        defineArrayMember({ type: "highlightBlock" }),
-        defineArrayMember({ type: "table" }),
+        defineArrayMember({ type: "address" })
 
     ],
     options: {

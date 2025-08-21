@@ -160,7 +160,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
 .blog-detail .blog-detail-content .sanity-block-table table tbody tr:nth-child(odd) td{background:#f3f6f8!important;}
 .blog-detail .blog-detail-content .sanity-block-table table tbody tr:last-child td:first-child{border-radius:0 0 0 10px;}
 .blog-detail .blog-detail-content .sanity-block-table table tbody tr:last-child td:last-child{border-radius:0 0 10px 0;}
-.blog-detail .blog-detail-content .sanity-block-table caption{font-size:16px;font-style:normal;text-align:center;color:#4c5056;margin:10px 0 0;line-height:20px;display:table;width:100%;}
+.blog-detail .blog-detail-content .sanity-block-table .table-caption{font-size:16px;font-style:normal;text-align:center;color:#4c5056;margin:10px 0 0;line-height:20px;display:table;width:100%;}
 
 /* ===== Highlight block (PortableText) ===== */
 .highlight-block{margin:24px 0;padding:20px 24px;border-radius:10px;line-height:1.7;max-width:1200px;margin:40px auto;}

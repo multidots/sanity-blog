@@ -12,8 +12,6 @@ import ServiceList from "./blocks/ServiceList";
 import { TestimonialSlider } from "./blocks/TestimonialSlider";
 import TeamList from "./blocks/TeamList";
 import AddressBlock from "./blocks/addressBlock";
-import HighlightBlock from "./blocks/HighlightBlock";
-import TableBlock from "./blocks/TableBlock";
 
 type PageBuilderProps = {
     content: any[];
@@ -122,18 +120,6 @@ export function PageBuilder({
                         return (
                             <DragHandle key={block._key}>
                                 <AddressBlock {...(block as React.ComponentProps<typeof AddressBlock>)} />
-                            </DragHandle>
-                        );
-                    case "highlightBlock":
-                        return (
-                            <DragHandle key={block._key}>
-                                <HighlightBlock {...(block as React.ComponentProps<typeof HighlightBlock>)} />
-                            </DragHandle>
-                        );
-                    case "table":
-                        return (
-                            <DragHandle key={block._key}>
-                                <TableBlock {...(block as React.ComponentProps<typeof TableBlock>)} />
                             </DragHandle>
                         );
                     default:

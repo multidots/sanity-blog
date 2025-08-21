@@ -62,7 +62,7 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
           ))}
         </tbody>
       </table>
-      {caption && <caption>{caption}</caption>}
+      {caption && <span className='table-caption'>{caption}</span>}
     </div>
   );
 };
