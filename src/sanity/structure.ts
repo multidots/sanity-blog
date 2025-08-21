@@ -57,6 +57,13 @@ export const structure: StructureResolver = (S) =>
       S.divider(),
       // Fallback: any remaining document types not explicitly listed above
       ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['siteSettings', 'page', 'post', 'category', 'author'].includes(item.getId()!),
+        (item) => item.getId() && !['siteSettings', 'page', 'post', 'category', 'author', 'formGeneralSettings'].includes(item.getId()!),
       ),
+      S.listItem()
+        .title('Form General Settings')
+        .child(
+          S.editor()
+            .schemaType('formGeneralSettings')
+            .documentId('form-general-settings')
+      )
     ])

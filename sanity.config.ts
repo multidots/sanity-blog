@@ -11,6 +11,8 @@ import { colorInput } from '@sanity/color-input';
 import {apiVersion, dataset, projectId} from './src/sanity/env'
 import {schema} from './src/sanity/schemaTypes'
 import { structure } from './src/sanity/structure'
+import { contactFormPlugin } from '@multidots/sanity-plugin-contact-form';
+
 
 export default defineConfig({
   basePath: '/studio',
@@ -22,6 +24,7 @@ export default defineConfig({
     structureTool({structure}),
     colorInput(),
     visionTool({defaultApiVersion: apiVersion}),
+    contactFormPlugin(),
   ],
   document: {
     newDocumentOptions: (prev, { creationContext }) => {

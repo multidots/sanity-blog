@@ -177,6 +177,12 @@ export type Page = {
   _rev: string;
   title?: string;
   slug?: Slug;
+  contactForm?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "contactForm";
+  };
   content?: PageBuilder;
   seo?: Seo;
 };
@@ -548,6 +554,50 @@ export type BlockContent = Array<{
   _key: string;
 } & HighlightBlock>;
 
+export type FormGeneralSettings = {
+  _id: string;
+  _type: "formGeneralSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  adminEmail?: string;
+  smtpUsername?: string;
+  smtpPassword?: string;
+  successMessage?: string;
+  confirmationSubject?: string;
+  confirmationMessage?: string;
+  recaptchaEnabled?: boolean;
+  recaptchaSiteKey?: string;
+  recaptchaSecretKey?: string;
+};
+
+export type ContactForm = {
+  _id: string;
+  _type: "contactForm";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  showtitle?: boolean;
+  id?: string;
+  class?: string;
+  fields?: Array<{
+    label?: string;
+    type?: "text" | "email" | "tel" | "textarea" | "url" | "file" | "checkbox" | "select" | "radio";
+    showPlaceholder?: boolean;
+    placeholder?: string;
+    name?: string;
+    selectOptions?: Array<string>;
+    radioOptions?: Array<string>;
+    checkboxOptions?: Array<string>;
+    helpText?: string;
+    note?: string;
+    isRequired?: boolean;
+    _key: string;
+  }>;
+  submitButtonText?: string;
+};
+
 export type Color = {
   _type: "color";
   hex?: string;
@@ -699,7 +749,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Address | Team | TestimonialSlider | PageBuilder | SiteSettings | Page | Services | ClientList | ImageTextSection | HighlightBlock | Table | CtaBlock | Hero | Post | Seo | Author | Category | BlockContent | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Address | Team | TestimonialSlider | PageBuilder | SiteSettings | Page | Services | ClientList | ImageTextSection | HighlightBlock | Table | CtaBlock | Hero | Post | Seo | Author | Category | BlockContent | FormGeneralSettings | ContactForm | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: HEADER_QUERY
@@ -783,6 +833,22 @@ export type HOME_PAGE_QUERYResult = {
   homePage: null;
 } | {
   _id: string;
+  _type: "contactForm";
+  title: string | null;
+  slug: null;
+  hideHeader: null;
+  hideFooter: null;
+  homePage: null;
+} | {
+  _id: string;
+  _type: "formGeneralSettings";
+  title: null;
+  slug: null;
+  hideHeader: null;
+  hideFooter: null;
+  homePage: null;
+} | {
+  _id: string;
   _type: "page";
   title: string | null;
   slug: string | null;
@@ -828,6 +894,12 @@ export type HOME_PAGE_QUERYResult = {
     _rev: string;
     title?: string;
     slug?: Slug;
+    contactForm?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "contactForm";
+    };
     content: Array<{
       _key: string;
       _type: "address";

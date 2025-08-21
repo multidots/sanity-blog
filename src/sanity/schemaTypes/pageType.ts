@@ -42,6 +42,14 @@ export const pageType = defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
+            name: 'contactForm',
+            title: 'Contact Form',
+            type: 'reference',
+            to: [{ type: 'contactForm' }],
+            description: 'Select a contact form to display.',
+            group: "content",
+        }),
+        defineField({
             name: "content",
             type: "pageBuilder",
             group: "content",

@@ -5,7 +5,7 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 export default function AddressBlock({ address, phone, email, socialLinks, googleMap }: Address) {
     return (
-        <div className="contact-info">
+        <div className="contact-info" style={{ marginTop: '100px' }}>
             <div className="contact-info-left">
                 <h3>Our Office</h3>
                 {address && <p>{address}</p>}
