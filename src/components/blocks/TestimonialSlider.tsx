@@ -37,7 +37,7 @@ export function TestimonialSlider({ title, testimonials }: TestimonialSliderType
         slidesToShow: getSlidesToShow(),
         slidesToScroll: 1,
         arrows: false,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 3000,
         draggable: true,
     }
@@ -65,7 +65,7 @@ export function TestimonialSlider({ title, testimonials }: TestimonialSliderType
                         {testimonials?.map((t) => (
                             <div key={t._key} className="testimonial-grid">
                                 <div className="testimonial" style={{ backgroundColor: t.backgroundColor?.hex }}>
-                                    {t.quote}
+                                    <p>{t.quote}</p>
                                     <span>- {t.author}</span>
                                 </div>
                             </div>

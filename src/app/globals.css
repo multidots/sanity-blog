@@ -62,8 +62,12 @@ section.testimonials .slick-slider .slick-dots li button{width:10px;height:10px;
 section.testimonials .slick-slider .slick-dots li button::before{display:none;}
 section.testimonials .slick-slider .slick-dots li{width:10px;height:10px;margin:0 5px;}
 section.testimonials .slick-slider .slick-dots li.slick-active button{background:#000;}
-section.testimonials .testimonial{background:#FFF;padding:30px 30px;border-radius:10px;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
-section.testimonials .testimonial span{display:block;margin-top:15px;font-weight:700;color:#fd5636;font-size:18px;line-height:normal;}
+section.testimonials .slick-slider .slick-track .slick-slide{height: auto;}
+section.testimonials .slick-slider .slick-track .slick-slide >div,
+section.testimonials .slick-slider .slick-track .slick-slide .testimonial-grid{height: 100%;}
+section.testimonials .testimonial{background:#FFF;padding:30px 30px 65px 30px;border-radius:10px;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,0.05);position: relative;height: 100%;box-sizing: border-box;}
+section.testimonials .testimonial p{margin: 0;}
+section.testimonials .testimonial span{display:block;font-weight:700;color:#fd5636;font-size:18px;line-height:normal;position: absolute;bottom: 30px;left: 30px;}
 section.customers{background:#F1F5F9;text-align:center;}
 section.customers .customer-logos{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
 section.customers .customer-logos img{height:35px;opacity:0.8;transition:opacity 0.3s;width:100%;}
@@ -181,7 +185,7 @@ section.team .team-member h3{margin: 0 0 10px 0;}
 }
 @media screen and (max-width:767px){
   h1{font-size:34px;line-height:44px;}
-  h2{margin:0 0 30px;font-size:26px;line-height:32px;}
+  h2{margin:0 0 30px;font-size:28px;line-height:34px;}
   h3{font-size:22px;line-height:28px;}
   p{margin: 0 0 15px;}
   button,.button-main{padding:12px 20px;font-size:18px;}
@@ -200,18 +204,21 @@ section.team .team-member h3{margin: 0 0 10px 0;}
   footer .footer-right nav a{font-size:16px;line-height:normal;}
   footer .footer-right .footer-social span{font-size:16px;line-height:normal;}
   section.hero{height:auto;}
+  section.hero .container{text-align: center;}
+  section.hero button{margin: 0 auto;}
   section.hero p{font-size:20px;margin:10px 0 30px;}
   section.services .service-grid{grid-template-columns:repeat(1,1fr);max-width:400px;margin:0 auto;}
   section.customers .customer-logos{gap:15px;display:grid;grid-template-columns:repeat(2,1fr);gap:30px 15px;}
   section.customers .customer-logos img{height:30px;width:auto;}
   section.testimonials .slick-slider .slick-track{gap:20px;}
-  section.testimonials .testimonial span{font-size:16px;}
-  section.testimonials .slick-slider .slick-dots{margin:20px auto 0;}
-  section.footer-cta p{margin:20px 0 30px;}
+  section.testimonials .testimonial span{font-size:16px;position: static;margin-top: 15px;}
+  section.testimonials .testimonial{padding: 30px 30px;}
+  section.testimonials .slick-slider .slick-dots{margin:10px auto 0;}
+  section.footer-cta p{margin:10px 0 30px;}
 
   section.about-intro .about-grid{flex-wrap: wrap;gap: 40px;}
   section.about-intro .about-grid .about-text{order: 2;}
-  section.about-intro .about-grid .about-text h1{font-size:26px;line-height:32px;}
+  section.about-intro .about-grid .about-text h1{font-size:28px;line-height:34px;}
   section.about-intro .about-grid .about-image {
     max-width: 350px;
     order: 1;
@@ -223,4 +230,9 @@ section.team .team-grid{    grid-template-columns: repeat(2, 1fr);}
   section.team .team-member h3 {
     margin: 0 0 5px;
 }
+}
+@media screen and (max-width:380px){
+  section.customers .customer-logos {
+    grid-template-columns: repeat(1, 1fr);gap: 20px;}
+    section.customers .customer-logos img{height: 25px;}
 }
