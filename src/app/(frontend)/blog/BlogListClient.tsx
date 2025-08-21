@@ -142,7 +142,7 @@ export default function BlogListClient() {
     }, [currentPage]);
 
     return (
-        <>
+        <main>
             <section className="blog-listing section">
                 <div className="container">
                     <h1 className="section-title">Latest Articles</h1>
@@ -184,9 +184,8 @@ export default function BlogListClient() {
                             <button
                                 disabled={currentPage <= 1}
                                 onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-                                className={`pagination-button ${currentPage <= 1 ? 'pagination-button-disabled' : ''}`}
+                                className={`pagination-button pagination-arrow prev ${currentPage <= 1 ? 'pagination-button-disabled' : ''}`}
                             >
-                                prev
                             </button>
 
                             {getPaginationNumbers().map((page, index) => (
@@ -208,9 +207,8 @@ export default function BlogListClient() {
                             <button
                                 disabled={currentPage >= totalPages}
                                 onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-                                className={`pagination-button ${currentPage >= totalPages ? 'pagination-button-disabled' : ''}`}
+                                className={`pagination-button pagination-arrow next ${currentPage >= totalPages ? 'pagination-button-disabled' : ''}`}
                             >
-                                next
                             </button>
                         </nav>
                     </div>
@@ -229,7 +227,7 @@ export default function BlogListClient() {
                 backgroundColor={siteSettings?.blogPageCTA?.backgroundColor?.hex ? { hex: siteSettings.blogPageCTA.backgroundColor.hex } : undefined}
                 textColor={siteSettings?.blogPageCTA?.textColor?.hex ? { hex: siteSettings.blogPageCTA.textColor.hex } : undefined}
             />
-        </>
+        </main>
     );
 }
 

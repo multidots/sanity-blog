@@ -4,7 +4,7 @@ h1,h2,h3,h4{font-weight:700;color:#0A0B0C;margin:0 0 15px 0;}
 h1{font-size:60px;line-height:74px;}
 h2{font-size:40px;line-height:54px;margin:0 0 60px 0;}
 h3{font-size:28px;line-height:38px;}
-h4{font-size: 24px;line-height: 30px;}
+h4{font-size:24px;line-height:30px;}
 p{font-size:18px;line-height:30px;margin:0 0 20px;color:#0A0B0C;}
 p:last-child{margin:0;}
 a{text-decoration:none;color:#fd5636;}
@@ -62,12 +62,11 @@ section.testimonials .slick-slider .slick-dots li button{width:10px;height:10px;
 section.testimonials .slick-slider .slick-dots li button::before{display:none;}
 section.testimonials .slick-slider .slick-dots li{width:10px;height:10px;margin:0 5px;}
 section.testimonials .slick-slider .slick-dots li.slick-active button{background:#000;}
-section.testimonials .slick-slider .slick-track .slick-slide{height: auto;}
-section.testimonials .slick-slider .slick-track .slick-slide >div,
-section.testimonials .slick-slider .slick-track .slick-slide .testimonial-grid{height: 100%;}
-section.testimonials .testimonial{background:#FFF;padding:30px 30px 65px 30px;border-radius:10px;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,0.05);position: relative;height: 100%;box-sizing: border-box;}
-section.testimonials .testimonial p{margin: 0;}
-section.testimonials .testimonial span{display:block;font-weight:700;color:#fd5636;font-size:18px;line-height:normal;position: absolute;bottom: 30px;left: 30px;}
+section.testimonials .slick-slider .slick-track .slick-slide{height:auto;}
+section.testimonials .slick-slider .slick-track .slick-slide >div,section.testimonials .slick-slider .slick-track .slick-slide .testimonial-grid{height:100%;}
+section.testimonials .testimonial{background:#FFF;padding:30px 30px 65px 30px;border-radius:10px;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,0.05);position:relative;height:100%;box-sizing:border-box;}
+section.testimonials .testimonial p{margin:0;}
+section.testimonials .testimonial span{display:block;font-weight:700;color:#fd5636;font-size:18px;line-height:normal;position:absolute;bottom:30px;left:30px;}
 section.customers{background:#F1F5F9;text-align:center;}
 section.customers .customer-logos{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;}
 section.customers .customer-logos img{height:35px;opacity:0.8;transition:opacity 0.3s;width:100%;}
@@ -77,7 +76,7 @@ section.footer-cta::before{content:"";position:absolute;top:0;left:0;width:100%;
 section.footer-cta .container{position:relative;z-index:1;}
 section.footer-cta h2{color:#FFF;margin:0;}
 section.footer-cta p{margin:20px 0 40px;color:#FFF;}
-section.footer-cta .container button{margin: 0 auto;}
+section.footer-cta .container button{margin:0 auto;}
 
 /* ===== About US page css ===== */
 section.about-intro .about-grid{display:flex;gap:30px;align-items:center;justify-content:space-between;}
@@ -90,7 +89,7 @@ section.team .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30p
 section.team .team-member{background:white;padding:1.5rem;border-radius:10px;transition:transform 0.3s ease,box-shadow 0.3s ease;}
 section.team .team-member:hover{transform:translateY(-8px);box-shadow:0 8px 16px rgba(0,0,0,0.1);}
 section.team .team-member img{width:100px;height:100px;margin-bottom:30px;object-fit:cover;border-radius:50%;}
-section.team .team-member h3{margin: 0 0 10px 0;}
+section.team .team-member h3{margin:0 0 10px 0;}
 
 /* ===== Contact US page css ===== */
 .contact-section .contact-container{padding:30px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);box-sizing:border-box;}
@@ -111,16 +110,18 @@ section.team .team-member h3{margin: 0 0 10px 0;}
 .contact-section .map{border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);}
 
 /* ===== Blog page css ===== */
-.blog-listing h1{margin-bottom:50px;}
+.blog-listing h1{margin:0 0 60px 0;font-size:40px;line-height:54px;text-align:center;}
 .blog-listing .blog-grid{display:flex;flex-direction:column;gap:50px;}
 .blog-listing .blog-card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:all 0.3s ease;display:flex;gap:30px;}
-.blog-listing .blog-card .blog-card-image{width:400px;position:relative;}
+.blog-listing .blog-card .blog-card-image{width:350px;position:relative;flex-shrink:0;}
 .blog-listing .blog-card .blog-card-image img{border-radius:10px 0 0 10px;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;}
 .blog-listing .blog-card .blog-content{padding:30px 30px 30px 0;}
-.blog-listing .blog-card .blog-content h2{margin:0 0 10px 0;}
-.blog-listing .blog-card .blog-content h2 a{color:inherit;text-decoration:none;}
-.blog-listing .blog-card .blog-content .blog-date{font-size:0.9rem;color:var(--primary-color);}
-.blog-listing .blog-card .blog-content a{text-decoration:underline;}
+.blog-listing .blog-card .blog-content h2{margin:0 0 10px 0;font-size:28px;line-height:38px;}
+.blog-listing .blog-card .blog-content h2 a{color:inherit;text-decoration:none;font-size:inherit;line-height:inherit;font-weight:inherit;transition:all 0.3s;}
+.blog-listing .blog-card .blog-content h2 a:hover{color:#fd5636;}
+.blog-listing .blog-card .blog-content .blog-date{font-size:16px;opacity:0.5;}
+.blog-listing .blog-card .blog-content a{text-decoration:underline;color:#0a0b0c;transition:all 0.3s;}
+.blog-listing .blog-card .blog-content a:hover{color:#fd5636;}
 .blog-detail .blog-detail-top-section .blog-main-img{width:100%;margin:1rem 0 2rem;border-radius:10px;}
 .blog-detail .blog-detail-top-section .blog-meta{color:#777;font-size:0.9rem;margin-bottom:1rem;}
 .blog-detail .blog-detail-top-section{border-bottom:1px solid #ccc;padding:0 0 30px 0;margin:0 0 30px 0;}
@@ -128,15 +129,15 @@ section.team .team-member h3{margin: 0 0 10px 0;}
 .blog-detail .blog-detail-content p{margin-bottom:15px;}
 
 /* ===== Pagination ===== */
-.pagination{margin-top:40px;display:flex;justify-content:center;}
-.pagination-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.pagination-button{min-width:40px;height:40px;padding:0 14px;border:1px solid #e5e7eb;background:#ffffff;color:#0f172a;border-radius:8px;cursor:pointer;font-weight:600;line-height:1;transition:color 0.2s ease,background 0.2s ease,border-color 0.2s ease,transform 0.08s ease;}
-.pagination-button:hover{border-color:#1E3A8A;color:#1E3A8A;}
-.pagination-button:active{transform:translateY(1px);}
-.pagination-button:focus-visible{outline:3px solid rgba(30,58,138,0.35);outline-offset:2px;}
-.pagination-button-active{background:#1E3A8A;color:#ffffff;border-color:#1E3A8A;}
-.pagination-button-disabled{opacity:0.5;cursor:not-allowed;}
-.pagination-ellipsis{padding:0 8px;color:#64748b;user-select:none;}
+.pagination .pagination-nav{display:flex;align-items:center;justify-content:center;gap:24px;margin:60px 0 0 0;}
+.pagination .pagination-nav button{background:transparent;border:0;outline:none!important;font-size:16px;line-height:100%;color:#0A0B0C;font-weight:500;cursor:pointer;padding:0;display:flex;align-items:center;gap:10px;transition:all 0.3s;}
+.pagination .pagination-nav button.pagination-button-active{background:#0B1014;border-radius:4px;padding:12px 17px;color:#FFF;}
+.pagination .pagination-nav button.pagination-button-disabled{cursor:not-allowed;opacity:0.5;pointer-events:none;}
+.pagination .pagination-nav button.pagination-arrow{width:22px;height:9px;background-size:contain;display:block;background-repeat:no-repeat;}
+.pagination .pagination-nav button.prev{background-image:url(/images/prev-arrow.svg);}
+.pagination .pagination-nav button.next{background-image:url(/images/next-arrow.svg);}
+.pagination .pagination-nav button:hover{color:#fd5636;}
+.pagination .pagination-nav button.pagination-button-active:hover{background:#fd5636;color:#FFF;}
 
 /* ===== Table block (PortableText) ===== */
 .sanity-block-table{margin:24px 0;overflow-x:auto;max-width:1200px;margin:40px auto;}
@@ -173,21 +174,23 @@ section.team .team-member h3{margin: 0 0 10px 0;}
   section.testimonials .testimonial span{font-size:16px;}
   section.testimonials .slick-slider .slick-dots{margin:20px auto 0;}
   section.footer-cta p{margin:20px 0 30px;}
-
-  section.about-intro .about-grid .about-text h1{font-size:32px;line-height:40px;margin: 0 0 15px;}
-  section.about-intro .about-grid .about-text .button-main {
-    margin-top: 30px;
-}
+  section.about-intro .about-grid .about-text h1{font-size:32px;line-height:40px;margin:0 0 15px;}
+  section.about-intro .about-grid .about-text .button-main{margin-top:30px;}
+  .blog-listing .blog-grid{gap:40px;}
+  .blog-listing h1{font-size:32px;line-height:40px;margin:0 0 40px 0;}
+  .blog-listing .blog-card .blog-card-image{width:300px;}
+  .blog-listing .blog-card .blog-content h2{font-size:24px;line-height:32px;}
+  .pagination .pagination-nav{margin:40px 0 0 0;}
 }
 @media screen and (max-width:991px){
   section.services .service-grid{grid-template-columns:repeat(2,1fr);}
-  section.about-intro .about-grid .about-image{max-width: 280px;}
+  section.about-intro .about-grid .about-image{max-width:280px;}
 }
 @media screen and (max-width:767px){
   h1{font-size:34px;line-height:44px;}
   h2{margin:0 0 30px;font-size:28px;line-height:34px;}
   h3{font-size:22px;line-height:28px;}
-  p{margin: 0 0 15px;}
+  p{margin:0 0 15px;}
   button,.button-main{padding:12px 20px;font-size:18px;}
   section{margin:50px 0;}
   main{padding-top:60px;}
@@ -204,35 +207,44 @@ section.team .team-member h3{margin: 0 0 10px 0;}
   footer .footer-right nav a{font-size:16px;line-height:normal;}
   footer .footer-right .footer-social span{font-size:16px;line-height:normal;}
   section.hero{height:auto;}
-  section.hero .container{text-align: center;}
-  section.hero button{margin: 0 auto;}
+  section.hero .container{text-align:center;}
+  section.hero button{margin:0 auto;}
   section.hero p{font-size:20px;margin:10px 0 30px;}
   section.services .service-grid{grid-template-columns:repeat(1,1fr);max-width:400px;margin:0 auto;}
   section.customers .customer-logos{gap:15px;display:grid;grid-template-columns:repeat(2,1fr);gap:30px 15px;}
   section.customers .customer-logos img{height:30px;width:auto;}
   section.testimonials .slick-slider .slick-track{gap:20px;}
-  section.testimonials .testimonial span{font-size:16px;position: static;margin-top: 15px;}
-  section.testimonials .testimonial{padding: 30px 30px;}
+  section.testimonials .testimonial span{font-size:16px;position:static;margin-top:15px;}
+  section.testimonials .testimonial{padding:30px 30px;}
   section.testimonials .slick-slider .slick-dots{margin:10px auto 0;}
   section.footer-cta p{margin:10px 0 30px;}
-
-  section.about-intro .about-grid{flex-wrap: wrap;gap: 40px;}
-  section.about-intro .about-grid .about-text{order: 2;}
+  section.about-intro .about-grid{flex-wrap:wrap;gap:40px;}
+  section.about-intro .about-grid .about-text{order:2;}
   section.about-intro .about-grid .about-text h1{font-size:28px;line-height:34px;}
-  section.about-intro .about-grid .about-image {
-    max-width: 350px;
-    order: 1;
+  section.about-intro .about-grid .about-image{max-width:350px;order:1;}
+  section.team .team-grid{grid-template-columns:repeat(2,1fr);}
+  .blog-listing h1{margin:0 0 30px;font-size:28px;line-height:34px;}
+  .blog-listing .blog-grid{gap:30px;}
+  .blog-listing h1{margin:0 0 30px;font-size:28px;line-height:34px;}
+  .blog-listing .blog-card .blog-card-image{width:250px;}
+  .blog-listing .blog-card .blog-content h2{font-size:22px;line-height:28px;}
+  .pagination .pagination-nav{margin:30px 0 0 0;gap:20px;}
+  .pagination .pagination-nav button.pagination-button-active{padding:10px 14px;}
 }
-section.team .team-grid{    grid-template-columns: repeat(2, 1fr);}
+@media screen and (max-width:600px){
+  .blog-listing .blog-grid{align-items:center;}
+  .blog-listing .blog-card{flex-wrap:wrap;max-width:350px;gap:0;}
+  .blog-listing .blog-card .blog-card-image{width:100%;}
+  .blog-listing .blog-card .blog-card-image img{position:static;border-radius:0;}
+  .blog-listing .blog-card .blog-content{padding:20px 20px;}
+  .blog-listing .blog-card .blog-content .blog-date{font-size:15px;}
+  .blog-listing .blog-card .blog-content a{font-size:16px;}
 }
 @media screen and (max-width:480px){
-  section.team .team-grid{    grid-template-columns: repeat(1, 1fr);}
-  section.team .team-member h3 {
-    margin: 0 0 5px;
-}
+  section.team .team-grid{grid-template-columns:repeat(1,1fr);}
+  section.team .team-member h3{margin:0 0 5px;}
 }
 @media screen and (max-width:380px){
-  section.customers .customer-logos {
-    grid-template-columns: repeat(1, 1fr);gap: 20px;}
-    section.customers .customer-logos img{height: 25px;}
+  section.customers .customer-logos{grid-template-columns:repeat(1,1fr);gap:20px;}
+  section.customers .customer-logos img{height:25px;}
 }
