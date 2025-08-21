@@ -1165,7 +1165,7 @@ export type HOME_PAGE_QUERYResult = {
   } | null;
 } | null;
 // Variable: PAGE_QUERY
-// Query: *[_type=="page" && slug.current == $slug][0]{   _id,    _type,    title,    "slug": slug.current,    content[]{      ...,    },    "seo": {      "title": coalesce(seo.title, title, ""),      "description": coalesce(seo.description, ""),      "image": seo.image,      "noIndex": seo.noIndex == true    },    hideHeader,    hideFooter}
+// Query: *[_type=="page" && slug.current == $slug][0]{   _id,    _type,    title,    "slug": slug.current,    content[]{      ...,    },    "seo": {      "title": coalesce(seo.title, title, ""),      "description": coalesce(seo.description, ""),      "image": seo.image,      "noIndex": seo.noIndex == true    },    hideHeader,    hideFooter,    contactForm}
 export type PAGE_QUERYResult = {
   _id: string;
   _type: "page";
@@ -1435,6 +1435,12 @@ export type PAGE_QUERYResult = {
   };
   hideHeader: null;
   hideFooter: null;
+  contactForm: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "contactForm";
+  } | null;
 } | null;
 // Variable: SITEMAP_QUERY
 // Query: *[_type in ["page", "post"] && defined(slug.current)] {      "href": select(        _type == "page" => "/" + slug.current,        _type == "post" => "/posts/" + slug.current,        slug.current      ),      _updatedAt  }
@@ -1695,7 +1701,7 @@ declare module "@sanity/client" {
     "*[_type == \"siteSettings\" && _id == \"siteSettings\"][0]{ \n  siteTitle,\n  logo,\n  scheduleCallTitle,\n  scheduleCallUrl,\n  menuItems[] {\n    title,\n    url,\n    openInNewTab,\n  },\n  }": HEADER_QUERYResult;
     "*[_type == \"siteSettings\" && _id == \"siteSettings\"][0]{\n  footer }": FOOTER_QUERYResult;
     "*[_id == \"siteSettings\"][0]{\n    _id,\n    _type,\n    title,\n    \"slug\": slug.current,\n    hideHeader,\n    hideFooter,\n  homePage->{\n    ...,\n    \"seo\": {\n    \"title\": coalesce(seo.title, title, \"\"),\n     \"description\": coalesce(seo.description,  \"\"),\n    \"image\": seo.image,\n    \"noIndex\": seo.noIndex == true\n  },\n    content[]{\n      ...,\n    }      \n  }\n}": HOME_PAGE_QUERYResult;
-    "*[_type==\"page\" && slug.current == $slug][0]{\n   _id,\n    _type,\n    title,\n    \"slug\": slug.current,\n    content[]{\n      ...,\n    },\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description, \"\"),\n      \"image\": seo.image,\n      \"noIndex\": seo.noIndex == true\n    },\n    hideHeader,\n    hideFooter\n}": PAGE_QUERYResult;
+    "*[_type==\"page\" && slug.current == $slug][0]{\n   _id,\n    _type,\n    title,\n    \"slug\": slug.current,\n    content[]{\n      ...,\n    },\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description, \"\"),\n      \"image\": seo.image,\n      \"noIndex\": seo.noIndex == true\n    },\n    hideHeader,\n    hideFooter,\n    contactForm\n}": PAGE_QUERYResult;
     "\n  *[_type in [\"page\", \"post\"] && defined(slug.current)] {\n      \"href\": select(\n        _type == \"page\" => \"/\" + slug.current,\n        _type == \"post\" => \"/posts/\" + slug.current,\n        slug.current\n      ),\n      _updatedAt\n  }\n  ": SITEMAP_QUERYResult;
     "* [_type == \"post\"] | order(publishedAt desc) {\n  _id,\n  title,\n  slug,\n  publishedAt,\n  mainImage,\n  categories[]->{\n    _id,\n    title\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    image\n  },\n  \"categories\": categories[]->title,\n  _type // Add this line\n}[$start...$end]": POSTS_QUERYResult;
     "count(*[_type == \"post\"])": POSTS_COUNT_QUERYResult;
