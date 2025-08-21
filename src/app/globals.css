@@ -240,8 +240,10 @@ section.team .team-member h3{margin:0 0 10px 0;}
   header .hamburger-menu span:nth-child(2){top:14px;}
   header .hamburger-menu span:nth-child(3){top:24px;width:20px;}
   header .hamburger-menu.active span:nth-child(1){top:50%;transform:translateY(-50%) rotateZ(-135deg);}
-  header .hamburger-menu.active span:nth-child(1){right:50%;width:0;}
-  header .hamburger-menu.active span:nth-child(1){top:50%;width:100%;transform:translateY(-50%) rotateZ(135deg);}
+  header .hamburger-menu.active span:nth-child(2){right:50%;width:0;}
+  header .hamburger-menu.active span:nth-child(3){top:50%;width:100%;transform:translateY(-50%) rotateZ(135deg);}
+  header nav.nav-menu {position:fixed;top:62px;left:0;width:100%;background:#0F172A;padding:30px 20px;opacity:0;visibility:hidden;transition:all 0.3s ease;display:flex !important;flex-direction:column !important;align-items:stretch !important;justify-content:flex-start !important;gap:0;box-shadow:0 4px 20px rgba(0,0,0,0.15);z-index:999;min-height:calc(100vh - 62px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.3) transparent;border-top: 1px solid #FFF;gap: 30px;}
+  header nav.nav-menu.nav-open{opacity:1;visibility:visible;}
   footer{padding:30px 0;}
   footer .footer-left{max-width:100%;margin:0 0 30px 0;}
   footer .footer-left h3{margin:0 0 10px;}
