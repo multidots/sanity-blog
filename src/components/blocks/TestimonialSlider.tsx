@@ -19,12 +19,25 @@ export function TestimonialSlider({ title, testimonials }: TestimonialSliderType
         autoplay: true,
         autoplaySpeed: 3000,
         draggable: true,
-        gap: 20,
         responsive: [
             {
-              breakpoint: 767,
+              breakpoint: 1024,
               settings: {
                 slidesToShow: 2,
+                slidesToScroll: 1,
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
                 slidesToScroll: 1,
               }
             }
