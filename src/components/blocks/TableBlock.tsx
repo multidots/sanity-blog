@@ -61,8 +61,8 @@ const TableBlock: React.FC<TableBlockProps> = (props) => {
             </tr>
           ))}
         </tbody>
-        {caption && <caption>{caption}</caption>}
       </table>
+      {caption && <caption>{caption}</caption>}
     </div>
   );
 };
