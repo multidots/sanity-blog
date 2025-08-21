@@ -51,7 +51,7 @@ export function PageBuilder({
     }
 
     return (
-        <div
+        <main
             data-sanity={createDataAttribute({
                 ...createDataAttributeConfig,
                 id: documentId,
@@ -59,7 +59,7 @@ export function PageBuilder({
                 path: "content",
             }).toString()}
         >
-
+            
             {blocks.map((block) => {
                 const DragHandle = ({ children }: { children: React.ReactNode }) => (
                     <div
@@ -141,6 +141,6 @@ export function PageBuilder({
                         return <div>Block not found</div>;
                 }
             })}
-        </div>
+        </main>
     );
 }
