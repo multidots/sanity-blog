@@ -62,14 +62,14 @@ export default async function Page({ params }: RouteProps) {
         return null;
     }
     return page?.content ? (
-        <main>
+        <div className="main">
             {formData && <ContactFormWrapper formData={formData} />}
             <PageBuilder
                 documentId={page._id}
                 documentType={page._type}
                 content={page.content}
             />
-        </main>
+        </div>
     ) : null;
 }
 async function getContactForm(formId: string) {
