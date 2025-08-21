@@ -164,10 +164,13 @@ section.team .team-member h3{margin:0 0 10px 0;}
 
 /* ===== Highlight block (PortableText) ===== */
 .highlight-block{margin:24px 0;padding:20px 24px;border-radius:10px;line-height:1.7;max-width:1200px;margin:40px auto;}
-.highlight-block p{margin:0 0 12px 0;}
+.highlight-block p{margin:0 0 12px 0;color:inherit !important;}
 .highlight-block p:last-child{margin-bottom:0;}
 .highlight-block a{color:inherit;text-decoration:underline;font-weight:600;}
 .highlight-block strong{font-weight:700;}
+.highlight-block *{color:inherit !important;}
+.highlight-block p, .highlight-block div, .highlight-block span, .highlight-block h1, .highlight-block h2, .highlight-block h3, .highlight-block h4, .highlight-block h5, .highlight-block h6{color:inherit !important;}
+.highlight-block * *{color:inherit !important;}
 
 /* ===== Contact us page ===== */
 .contact-page-main{background:#f5f5f5;}
