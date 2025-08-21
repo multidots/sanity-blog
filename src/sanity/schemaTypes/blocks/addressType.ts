@@ -1,18 +1,9 @@
-// create an address block with the following fields:
-// title
-// address
-// phone
-// email
-// social media
-// link to social media
-// google map
-
 import { defineField, defineType } from "sanity";
 import { PinIcon } from '@sanity/icons'
 
 export const addressType = defineType({
     name: 'address',
-    title: 'Address',
+    title: 'Address Block',
     type: 'object',
     icon: PinIcon,
     groups: [

@@ -3,7 +3,7 @@ import { ImageIcon } from '@sanity/icons'
 
 export const imageTextSection = defineType({
     name: 'imageTextSection',
-    title: 'Image & Text Section',
+    title: 'Image & Text Block',
     type: 'object',
     icon: ImageIcon,
     groups: [
@@ -114,10 +114,14 @@ export const imageTextSection = defineType({
     preview: {
         select: {
             title: "title",
+            subtitle: "description",
+            media: "mainImage",
         },
-        prepare({ }) {
+        prepare({ title, subtitle, media }) {
             return {
-                title:  "Image Text Block",
+                title: "Image Text Block",
+                subtitle: title ?? subtitle ?? "Image Text Block",
+                media: media ?? ImageIcon,
             };
         },
     },

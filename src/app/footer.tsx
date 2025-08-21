@@ -45,7 +45,7 @@ export default function Footer({ footer }: { footer: FooterProps }) {
                                 )}
                             </div>
                         </div>
-                        <p className="copyrights-text">{footer.copyrrightText}</p>
+                        {footer.copyrrightText && <p className="copyrights-text">{footer.copyrrightText}</p>}
                     </div>
                 </div>
             </footer>

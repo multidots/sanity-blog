@@ -1,11 +1,11 @@
 import { defineType } from "sanity";
-import { TabletDeviceIcon } from '@sanity/icons'
+import { SquareIcon } from '@sanity/icons'
 
 export const tableType = defineType({
     name: 'table',
-    title: 'Table',
+    title: 'Table Block',
     type: 'object',
-    icon: TabletDeviceIcon,
+    icon: SquareIcon,
     fields: [
         {
             name: 'rows',

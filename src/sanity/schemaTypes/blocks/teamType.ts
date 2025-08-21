@@ -3,6 +3,7 @@ import { UsersIcon } from '@sanity/icons'
 
 export const teamType = defineType({
     name: "team",
+    title: "Team Block",
     type: "object",
     icon: UsersIcon,
     groups: [
