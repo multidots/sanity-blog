@@ -1,5 +1,6 @@
 'use client';
 import { urlFor } from '@/sanity/lib/image';
+import Link from 'next/link';
 
 type ButtonProps = {
     text: string;
@@ -41,7 +42,9 @@ export default function CTABlock({
                 {heading && <h2 style={{ color: typeof textColor === 'string' ? textColor : textColor?.hex }}>{heading}</h2>}
                 {subheading && <p style={{ color: typeof textColor === 'string' ? textColor : textColor?.hex }}>{subheading}</p>}
                 {button && (
-                    <button>{button.text}</button>
+                    <Link href={button.link} target={button.openInNewTab ? '_blank' : '_self'}>
+                        <button>{button.text}</button>
+                    </Link>
                 )}
             </div>
         </section>

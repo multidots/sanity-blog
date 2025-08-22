@@ -35,7 +35,7 @@ export default function Footer({ footer }: { footer: FooterProps }) {
                                         <ul> 
                                             {footer.socialLinks.map((link) => (
                                                 <li key={link._key}>
-                                                    <Link href={link.url || ''}>
+                                                    <Link href={link.url || ''} target={link.newTab ? '_blank' : '_self'}>
                                                         <Image src={urlFor(link.icon?.asset?._ref as SanityImageSource).url() || ''} alt={link.icon?.alt || 'Social Icon'} width={20} height={20} />
                                                     </Link>
                                                 </li>

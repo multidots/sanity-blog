@@ -37,6 +37,7 @@ export type Address = {
       _type: "image";
     };
     url?: string;
+    newTab?: boolean;
     _key: string;
   }>;
 };
@@ -153,6 +154,7 @@ export type SiteSettings = {
         _type: "image";
       };
       url?: string;
+      newTab?: boolean;
       _key: string;
     }>;
   };
@@ -805,6 +807,7 @@ export type FOOTER_QUERYResult = {
         _type: "image";
       };
       url?: string;
+      newTab?: boolean;
       _key: string;
     }>;
   } | null;
@@ -903,6 +906,7 @@ export type HOME_PAGE_QUERYResult = {
           _type: "image";
         };
         url?: string;
+        newTab?: boolean;
         _key: string;
       }>;
     } | {
@@ -1120,6 +1124,7 @@ export type PAGE_QUERYResult = {
         _type: "image";
       };
       url?: string;
+      newTab?: boolean;
       _key: string;
     }>;
   } | {

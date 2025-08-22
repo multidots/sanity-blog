@@ -151,6 +151,13 @@
                     "type": "string"
                   },
                   "optional": true
+                },
+                "newTab": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "boolean"
+                  },
+                  "optional": true
                 }
               },
               "rest": {
@@ -889,6 +896,13 @@
                       "type": "objectAttribute",
                       "value": {
                         "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "newTab": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "boolean"
                       },
                       "optional": true
                     }

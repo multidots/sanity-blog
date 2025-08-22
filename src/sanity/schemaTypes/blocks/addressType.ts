@@ -82,6 +82,11 @@ export const addressType = defineType({
                             type: 'url',
                             validation: Rule => Rule.required().uri({ scheme: ['http', 'https'] })
                         },
+                        {
+                            name: 'newTab',
+                            title: 'Open in New Tab',
+                            type: 'boolean'
+                        }
                     ],
                     preview: {
                         select: {
