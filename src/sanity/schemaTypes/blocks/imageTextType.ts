@@ -83,7 +83,7 @@ export const imageTextSection = defineType({
             title: 'Button',
             group: "button",
             type: 'object',
-            options: { collapsible: true, collapsed: true, columns: 2 },
+            options: { collapsible: true, collapsed: false },
             fields: [
                 defineField({
                     name: 'text',
