@@ -12,32 +12,34 @@ export default function AddressBlock({ address, phone, email, socialLinks, googl
                     <div className="contact-info-left">
                         <h2>Our Office</h2>
                         {address && <p>{address}</p>}
-                        {email && <p><Link href={`mailto:${email}`} target="_self">Email: {email}</Link></p>}
-                        {phone && <p><Link href={`tel:${phone}`} target="_self">Phone: {phone}</Link></p>}
-                        <div className="form-social">
-                            <span>Follow Us</span>
-                            <ul>
-                                {socialLinks && socialLinks.map((social) => (
-                                    <li key={social._key} style={{ display: 'inline-block', marginRight: '10px' }}>
-                                        <Link href={social.url || ''} target={social.newTab ? '_blank' : '_self'}>
-                                            <Image src={urlFor(social.icon as SanityImageSource).url() || ''}
-                                                alt={social.icon?.alt || ''}
-                                                width={24}
-                                                height={24}
-                                                className="social-icon"
-                                            />
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        {email && <p>Email: <Link href={`mailto:${email}`} target="_self">{email}</Link></p>}
+                        {phone && <p>Phone: <Link href={`tel:${phone}`} target="_self">{phone}</Link></p>}
+                        {socialLinks && socialLinks.length > 0 && (
+                            <div className="form-social">
+                                <span>Follow Us</span>
+                                <ul>
+                                    {socialLinks && socialLinks.map((social) => (
+                                        <li key={social._key} style={{ display: 'inline-block', marginRight: '10px' }}>
+                                            <Link href={social.url || ''} target={social.newTab ? '_blank' : '_self'}>
+                                                <Image src={urlFor(social.icon as SanityImageSource).url() || ''}
+                                                    alt={social.icon?.alt || ''}
+                                                    width={24}
+                                                    height={24}
+                                                    className="social-icon"
+                                                />
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </div>
                     <div className="map">
-                        {googleMap && ( 
-                        <iframe
-                            width="100%"
-                            height="400"
-                            style={{ border: 0 }}
+                        {googleMap && (
+                            <iframe
+                                width="100%"
+                                height="400"
+                                style={{ border: 0 }}
                                 src={`https://www.google.com/maps?q=${googleMap.lat},${googleMap.lng}&hl=es;z=14&output=embed`}
                             />
                         )}
