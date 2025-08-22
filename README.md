@@ -99,114 +99,24 @@ npm run dev
 
 ```
 sanity-blog-theme/
-├── cli.js                          # CLI tool for project setup
-├── eslint.config.mjs               # ESLint configuration
-├── next.config.ts                  # Next.js configuration
-├── package.json                    # Dependencies and scripts
-├── package-lock.json               # Dependency lock file
-├── postcss.config.mjs              # PostCSS configuration
-├── README.md                       # Project documentation
-├── sanity.cli.ts                   # Sanity CLI configuration
-├── sanity.config.ts                # Sanity Studio configuration
-├── sanity-typegen.json             # Sanity TypeScript generation config
-├── test-cli.js                     # CLI testing utilities
-├── tsconfig.json                   # TypeScript configuration
 ├── public/                         # Static assets
-│   ├── images/                     # Image assets
-│   │   ├── about-our-company.jpg
-│   │   ├── blog-feature-image.jpg
-│   │   ├── blog-image01.jpg
-│   │   ├── blog-image02.jpg
-│   │   ├── blog-image03.jpg
-│   │   ├── customers-logo01.png
-│   │   ├── customers-logo02.png
-│   │   ├── customers-logo03.png
-│   │   ├── customers-logo04.png
-│   │   ├── facebook.png
-│   │   ├── hero-banner-bg.jpeg
-│   │   ├── instagram.png
-│   │   ├── linkedin.png
-│   │   ├── next-arrow.svg
-│   │   ├── prev-arrow.svg
-│   │   ├── sanity-logo.png
-│   │   ├── team01.jpg
-│   │   ├── team02.jpg
-│   │   ├── team03.jpg
-│   │   └── twitter.png
-│   ├── file.svg
-│   ├── globe.svg
-│   ├── next.svg
-│   ├── vercel.svg
-│   └── window.svg
-└── src/                           # Source code
-    ├── app/                       # Next.js App Router
-    │   ├── (frontend)/           # Frontend route group
-    │   │   ├── [slug]/           # Dynamic page routes
-    │   │   │   └── page.tsx
-    │   │   ├── blog/             # Blog routes
-    │   │   │   ├── [slug]/       # Individual blog post
-    │   │   │   │   └── page.tsx
-    │   │   │   ├── BlogListClient.tsx
-    │   │   │   └── page.tsx      # Blog listing page
-    │   │   ├── layout.tsx        # Frontend layout
-    │   │   └── page.tsx          # Homepage
-    │   ├── api/                  # API routes
-    │   │   └── submit-form/      # Form submission endpoint
-    │   │       └── route.ts
-    │   ├── studio/               # Sanity Studio routes
-    │   │   └── [[...tool]]/
-    │   │       └── page.tsx
-    │   ├── favicon.ico
-    │   ├── footer.tsx            # Global footer component
-    │   ├── globals.css           # Global styles
-    │   ├── header.tsx            # Global header component
-    │   └── layout.tsx            # Root layout
-    ├── components/               # React components
-    │   ├── blocks/               # Page Builder blocks
-    │   │   ├── addressBlock.tsx
-    │   │   ├── ClientList.tsx
-    │   │   ├── CTA.tsx
-    │   │   ├── Hero.tsx
-    │   │   ├── HighlightBlock.tsx
-    │   │   ├── ImageText.tsx
-    │   │   ├── ServiceList.tsx
-    │   │   ├── TableBlock.tsx
-    │   │   ├── TeamList.tsx
-    │   │   └── TestimonialSlider.tsx
-    │   ├── ContactFormWrapper.tsx
-    │   ├── PageBuilder.tsx       # Main Page Builder component
-    │   └── PortableTextComponents.tsx
-    └── sanity/                   # Sanity configuration and schemas
-        ├── env.ts                # Environment configuration
-        ├── extract.json          # Sanity extraction data
-        ├── lib/                  # Sanity utilities
-        │   ├── client.ts         # Sanity client setup
-        │   ├── image.ts          # Image URL builder
-        │   ├── live.ts           # Live preview setup
-        │   └── queries.ts        # GROQ queries
-        ├── schemaTypes/          # Content schemas
-        │   ├── blocks/           # Block schemas for Page Builder
-        │   │   ├── addressType.ts
-        │   │   ├── clientListType.ts
-        │   │   ├── ctaType.ts
-        │   │   ├── heroType.ts
-        │   │   ├── highlightBlockType.ts
-        │   │   ├── imageTextType.ts
-        │   │   ├── serviceType.ts
-        │   │   ├── tableType.ts
-        │   │   ├── teamType.ts
-        │   │   └── testimonialSliderType.ts
-        │   ├── authorType.ts     # Author schema
-        │   ├── blockContentType.ts # Portable Text schema
-        │   ├── categoryType.ts   # Category schema
-        │   ├── index.ts          # Schema exports
-        │   ├── pageBuilderType.ts # Page Builder schema
-        │   ├── pageType.ts       # Page schema
-        │   ├── postType.ts       # Blog post schema
-        │   ├── seoType.ts        # SEO schema
-        │   └── siteSettings.js   # Site settings schema
-        ├── structure.ts          # Custom Desk structure
-        └── types.ts              # TypeScript types
+│   └── images/                    # Image assets
+├── src/                           # Source code
+│   ├── app/                       # Next.js App Router
+│   │   ├── (frontend)/           # Frontend route group
+│   │   │   ├── [slug]/           # Dynamic page routes
+│   │   │   └── blog/             # Blog routes
+│   │   │       └── [slug]/       # Individual blog post routes
+│   │   ├── api/                  # API routes
+│   │   │   └── submit-form/      # Form submission endpoint
+│   │   └── studio/               # Sanity Studio routes
+│   │       └── [[...tool]]/      # Studio catch-all routes
+│   ├── components/               # React components
+│   │   └── blocks/               # Page Builder block components
+│   └── sanity/                   # Sanity configuration and schemas
+│       ├── lib/                  # Sanity utilities
+│       └── schemaTypes/          # Content schemas
+│           └── blocks/           # Block schemas for Page Builder
 ```
 
 ### Sanity Studio

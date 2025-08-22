@@ -1,9 +1,9 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
 import { blockContentType } from './blockContentType'
-import { categoryType } from './categoryType'
-import { postType } from './postType'
-import { authorType } from './authorType'
+import { categoryType } from './documents/categoryType'
+import { postType } from './documents/postType'
+import { authorType } from './documents/authorType'
 import { heroType } from './blocks/heroType'
 import { ctaBlockType } from './blocks/ctaType'
 import { tableType } from './blocks/tableType';
@@ -12,8 +12,8 @@ import { imageTextSection } from './blocks/imageTextType';
 import { clientList } from './blocks/clientListType';
 import { serviceType } from './blocks/serviceType';
 import { seoType } from './seoType';
-import siteSettings from './siteSettings';
-import { pageType } from './pageType';
+import siteSettings from './documents/siteSettings';
+import { pageType } from './documents/pageType';
 import { pageBuilderType } from './pageBuilderType'
 import { testimonialSlider } from './blocks/testimonialSliderType'
 import { teamType } from './blocks/teamType'
