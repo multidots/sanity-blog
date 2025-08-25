@@ -162,11 +162,19 @@ export default function BlogListClient() {
                                 )}
                                 {post.title && (
                                     <div className="blog-content">
-                                        <span className="blog-date">{post.publishedAt && new Date(post.publishedAt).toLocaleDateString('en-US', {
+                                        <span className="blog-date"> {post.author && (
+                                            <span className="blog-author">By {post.author.name}</span>
+                                        )} | {post.publishedAt && new Date(post.publishedAt).toLocaleDateString('en-US', {
                                             year: 'numeric',
                                             month: 'long',
                                             day: 'numeric',
-                                        })}</span>
+                                        })} | {post.categories && post.categories.length > 0 && (
+                                            <span className="blog-categories">
+                                                {post.categories.map((category) => (
+                                                    <span key={category}> | {category}</span>
+                                                ))}
+                                            </span>
+                                        )}</span>
                                         <h2><Link href={`/blog/${post.slug?.current ?? ''}`}>{post.title ?? 'Untitled'}</Link></h2>
                                         <p>{post.description ?? ''}</p>
                                         <Link href={`/blog/${post.slug?.current ?? ''}`} className="btn">Read More</Link>

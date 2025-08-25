@@ -99,8 +99,14 @@ export default async function BlogPostPage({ params }: Props) {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric',
-                        })}</p>
-                    )}
+                        })} | {post.categories && post.categories.length > 0 && (
+                            <span className="blog-categories">
+                                {post.categories.map((category) => (
+                                    <span key={category.title}> | {category.title}</span>
+                                ))}
+                            </span>
+                        )}</p>
+                        )}
                 </div>
                 <div className="blog-detail-content">
                     {post.body && (

@@ -55,44 +55,6 @@ The CLI will guide you through:
 
 3. **Ready to Go** - Your project will be fully configured and ready to run!
 
-## Manual setup (alternative)
-
-If you prefer to clone and set up manually:
-
-### Prerequisites
-- Node.js LTS (v18+)
-- npm, pnpm, or yarn
-- A Sanity project (create one at `https://www.sanity.io/`)
-
-### 1) Clone and install
-```bash
-git clone https://github.com/yourusername/sanity-blog-theme.git my-blog-project
-cd my-blog-project
-npm install
-```
-
-### 2) Configure environment
-Create `.env.local` in the project root:
-
-```bash
-NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId
-NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SANITY_API_VERSION=2025-06-10
-```
-
-Values are read from `src/sanity/env.ts`. If any are missing, the app will throw a clear error.
-
-### 3) Run the development server
-
-```bash
-npm run dev
-# or: pnpm dev
-# or: yarn dev
-```
-
-- App: `http://localhost:3000`
-- Studio: `http://localhost:3000/studio`
-
 ## Project structure
 
 ### Folder Structure
