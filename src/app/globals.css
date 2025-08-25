@@ -125,7 +125,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
 .blog-listing .blog-card .blog-content .blog-date{font-size:16px;opacity:0.5;}
 .blog-listing .blog-card .blog-content a{text-decoration:underline;color:#0a0b0c;transition:all 0.3s;}
 .blog-listing .blog-card .blog-content a:hover{color:#fd5636;}
-.blog-detail{padding: 172px 0;}
+.blog-detail{padding: 172px 0!important;}
 .blog-detail .blog-detail-top-section .blog-main-img{width:100%;margin:0 0 60px 0;border-radius:10px;height: 500px;object-fit: cover;object-position: top;}
 .blog-detail .blog-detail-top-section .blog-meta{color:#777;font-size:0.9rem;margin-bottom:1rem;}
 .blog-detail .blog-detail-top-section .blog-meta span{color:#0a0b0c;}
@@ -218,7 +218,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
   .blog-listing .blog-card .blog-card-image{width:300px;}
   .blog-listing .blog-card .blog-content h2{font-size:24px;line-height:32px;}
   .pagination .pagination-nav{margin:40px 0 0 0;}
-  .blog-detail{padding: 146px 0 80px 0;}
+  .blog-detail{padding: 146px 0 80px 0!important;}
   .blog-detail .blog-detail-top-section .blog-main-img{margin:0 0 40px 0;height: 450px;}
   .blog-detail .blog-detail-top-section h1.blog-title{font-size: 42px;line-height: 52px;}
   .blog-detail .blog-detail-content h2{margin:30px 0 20px;font-size: 30px;line-height: 36px;}
@@ -286,7 +286,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
   .blog-listing .blog-card .blog-content h2{font-size:22px;line-height:28px;}
   .pagination .pagination-nav{margin:30px 0 0 0;gap:20px;}
   .pagination .pagination-nav button.pagination-button-active{padding:10px 14px;}
-  .blog-detail{padding: 110px 0 50px 0;}
+  .blog-detail{padding: 110px 0 50px 0!important;}
   .blog-detail .blog-detail-top-section .blog-main-img{margin:0 0 30px 0;height: auto;}
   .blog-detail .blog-detail-top-section h1.blog-title{font-size: 34px;line-height: 40px;}
   .blog-detail .blog-detail-content h2{margin:25px 0 15px;font-size: 26px;line-height: 30px;}
@@ -302,9 +302,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
   .contact-page-main form input, .contact-page-main form textarea{padding: 12px 12px;}
   .contact-page-main form button{padding:12px 20px;font-size:18px;}
   .contact-info-main .contact-info{flex-wrap: wrap;gap: 30px;}
-  .contact-info-main .contact-info .contact-info-left {
-    width: 100%;
-}
+  .contact-info-main .contact-info .contact-info-left {width: 100%;}
 }
 @media screen and (max-width:600px){
   .blog-listing .blog-grid{align-items:center;}
