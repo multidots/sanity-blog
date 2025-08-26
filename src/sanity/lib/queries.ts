@@ -87,7 +87,7 @@ export const SINGLE_POST_QUERY = defineQuery(`
     title,
     slug,
     "author": author-> { name, image, bio, socialLinks },
-    mainImage { asset->, alt, width, height },
+    mainImage { asset->, alt },
     categories[]-> { title },
     publishedAt,
     body[]{

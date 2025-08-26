@@ -86,8 +86,8 @@ export default async function BlogPostPage({ params }: Props) {
                                     src={urlFor(post.mainImage).url()}
                                     alt={post.title || ''}
                                     className="blog-main-img"
-                                    width={post.mainImage.width || 1200}
-                                    height={post.mainImage.height || 800}
+                                    width={1200}
+                                    height={800}
                                 />
                         </div>
                     )}

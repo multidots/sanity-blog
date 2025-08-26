@@ -54,17 +54,7 @@ export const postType = defineType({
           type: 'string',
           title: 'Alternative text',
           validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'width',
-          type: 'number',
-          title: 'Width',
-        }),
-        defineField({
-          name: 'height',
-          type: 'number',
-          title: 'Height',
-        }),
+        })
       ]
     }),
     defineField({

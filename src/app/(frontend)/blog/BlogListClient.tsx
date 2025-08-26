@@ -212,8 +212,8 @@ export default function BlogListClient() {
                                             <Image
                                                 src={urlFor(post.mainImage).url()}
                                                 alt={post.title || ''}
-                                                width={post.mainImage.width || 500}
-                                                height={post.mainImage.height || 500}
+                                                width={500}
+                                                height={500}
                                             />
                                         </div>
                                     )}
