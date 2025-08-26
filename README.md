@@ -13,7 +13,7 @@ Modern, editor-friendly starter that pairs Next.js (App Router) with Sanity Stud
 The easiest way to get started is using the CLI:
 
 ```bash
-npx sanity-blog-theme my-blog-project
+npx @multidots/sanity-blog-theme my-blog-project
 cd my-blog-project
 ```
 
@@ -21,13 +21,13 @@ Or using your preferred package manager:
 
 ```bash
 # npm
-npx sanity-blog-theme my-blog-project
+npx @multidots/sanity-blog-theme my-blog-project
 
 # yarn
-yarn create sanity-blog-theme my-blog-project
+yarn create @multidots/sanity-blog-theme my-blog-project
 
 # pnpm
-pnpm create sanity-blog-theme my-blog-project
+pnpm create @multidots/sanity-blog-theme my-blog-project
 ```
 
 or Directly clone the repository:
