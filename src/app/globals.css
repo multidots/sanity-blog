@@ -22,7 +22,7 @@ main,.main{padding-top:73px;}
 .main main,main .main{padding:0;}
 
 /* ===== Header ===== */
-header{background:#0F172A;color:#fff;position:fixed;top:0;z-index:100;color:#FFF;padding:15px 0;width:100%;box-sizing:border-box;}
+header{background:#0F172A;color:#fff;position:fixed;top:0;z-index:100;color:#FFF;padding:21px 0;width:100%;box-sizing:border-box;}
 header .container{display:flex;justify-content:space-between;align-items:center;}
 header .logo{display:flex;align-items:center;}
 header .logo img{width:180px;vertical-align:bottom;}
@@ -200,7 +200,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
   section{margin:80px 0;}
   main{padding-top:66px;}
   div:has(section):nth-child(even) section{padding:80px 0;}
-  header{padding:15px 20px;}
+  header{padding:18px 20px;}
   header nav a{font-size:18px;}
   header .logo img{width:150px;}
   footer{padding:40px 0;}
@@ -244,7 +244,7 @@ section.team .team-member h3{margin:0 0 10px 0;}
   section{margin:50px 0;}
   main,.main{padding-top:60px;}
   div:has(section):nth-child(even) section{padding:50px 0;}
-  header{padding:15px 20px;}
+  header{padding:14px 20px;}
   header nav a{font-size:18px;}
   header .logo img{width:120px;}
   header .hamburger-menu{position:relative;width:32px;height:32px;font-size:inherit;transition:all 0.3s ease;cursor:pointer;display:block;}
