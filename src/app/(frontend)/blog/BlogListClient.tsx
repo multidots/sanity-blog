@@ -6,7 +6,7 @@ import { urlFor } from '@/sanity/lib/image';
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
 import CTABlock from '@/components/blocks/CTA';
-import { SiteSettings, POSTS_QUERYResult } from '@/sanity/types';
+import { SiteSettings } from '@/sanity/types';
 import Image from 'next/image';
 
 type Post = {

@@ -1371,7 +1371,7 @@ export type POSTS_QUERYResult = Array<{
 // Query: count(*[_type == "post"])
 export type POSTS_COUNT_QUERYResult = number;
 // Variable: SINGLE_POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug][0] {    _id,    _type,    title,    slug,    "author": author-> { name, image, bio, socialLinks },    mainImage { asset->, alt },    categories[]-> { title },    publishedAt,    body[]{      ...,    },    "seo": {      "title": coalesce(seo.title, title, ""),      "description": coalesce(seo.description, description, ""),      "image": seo.image,      "noIndex": seo.noIndex == true    }  }
+// Query: *[_type == "post" && slug.current == $slug][0] {    _id,    _type,    title,    slug,    "author": author-> { name, image, bio, socialLinks },    mainImage { asset->, alt, width, height },    categories[]-> { title },    publishedAt,    body[]{      ...,    },    "seo": {      "title": coalesce(seo.title, title, ""),      "description": coalesce(seo.description, description, ""),      "image": seo.image,      "noIndex": seo.noIndex == true    }  }
 export type SINGLE_POST_QUERYResult = {
   _id: string;
   _type: "post";
@@ -1435,6 +1435,8 @@ export type SINGLE_POST_QUERYResult = {
       source?: SanityAssetSourceData;
     } | null;
     alt: string | null;
+    width: number | null;
+    height: number | null;
   } | null;
   categories: Array<{
     title: string | null;
@@ -1584,7 +1586,7 @@ declare module "@sanity/client" {
     "\n  *[_type in [\"page\", \"post\"] && defined(slug.current)] {\n      \"href\": select(\n        _type == \"page\" => \"/\" + slug.current,\n        _type == \"post\" => \"/posts/\" + slug.current,\n        slug.current\n      ),\n      _updatedAt\n  }\n  ": SITEMAP_QUERYResult;
     "* [_type == \"post\"] | order(publishedAt desc) {\n  _id,\n  title,\n  slug,\n  publishedAt,\n  mainImage,\n  categories[]->{\n    _id,\n    title\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    image\n  },\n  \"categories\": categories[]->title,\n  _type // Add this line\n}[$start...$end]": POSTS_QUERYResult;
     "count(*[_type == \"post\"])": POSTS_COUNT_QUERYResult;
-    "\n  *[_type == \"post\" && slug.current == $slug][0] {\n    _id,\n    _type,\n    title,\n    slug,\n    \"author\": author-> { name, image, bio, socialLinks },\n    mainImage { asset->, alt },\n    categories[]-> { title },\n    publishedAt,\n    body[]{\n      ...,\n    },\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description, description, \"\"),\n      \"image\": seo.image,\n      \"noIndex\": seo.noIndex == true\n    }\n  }\n": SINGLE_POST_QUERYResult;
+    "\n  *[_type == \"post\" && slug.current == $slug][0] {\n    _id,\n    _type,\n    title,\n    slug,\n    \"author\": author-> { name, image, bio, socialLinks },\n    mainImage { asset->, alt, width, height },\n    categories[]-> { title },\n    publishedAt,\n    body[]{\n      ...,\n    },\n    \"seo\": {\n      \"title\": coalesce(seo.title, title, \"\"),\n      \"description\": coalesce(seo.description, description, \"\"),\n      \"image\": seo.image,\n      \"noIndex\": seo.noIndex == true\n    }\n  }\n": SINGLE_POST_QUERYResult;
     "\n  *[_type == \"siteSettings\" && _id == \"siteSettings\"][0] {\n    blogPostsPerPage,\n    blogPageCTA {\n      heading,\n      subheading,\n      button {\n        text,\n        link,\n        openInNewTab\n      },\n      backgroundType,\n      backgroundImage,\n      backgroundColor,\n      textColor\n    }\n  }\n": SITE_SETTINGS_QUERYResult;
   }
 }
