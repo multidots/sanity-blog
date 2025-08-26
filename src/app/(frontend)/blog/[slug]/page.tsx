@@ -86,8 +86,8 @@ export default async function BlogPostPage({ params }: Props) {
                                     src={urlFor(post.mainImage).url()}
                                     alt={post.title || ''}
                                     className="blog-main-img"
-                                    width={1200}
-                                    height={800}
+                                    width={post.mainImage.width || 1200}
+                                    height={post.mainImage.height || 800}
                                 />
                         </div>
                     )}
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
                             day: 'numeric',
                         })} | {post.categories && post.categories.length > 0 && (
                             <span className="blog-categories">
-                                {post.categories.map((category) => (
+                                {post.categories.map((category: {title: string}) => (
                                     <span key={category.title}> | {category.title}</span>
                                 ))}
                             </span>
