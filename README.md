@@ -7,7 +7,6 @@ Modern, editor-friendly starter that pairs Next.js (App Router) with Sanity Stud
 - Organized editor UX: field groups, collapsible sections, sensible defaults, previews
 - Sanity Studio embedded at `/studio` with a custom content structure
 - Blog with authors, categories, SEO, pagination-ready queries
-- Ready for Vercel deployment; environment-driven Sanity configuration
 
 ## Create a new project
 
@@ -70,7 +69,7 @@ sanity-blog-theme/
 │   │   │   └── blog/             # Blog routes
 │   │   │       └── [slug]/       # Individual blog post routes
 │   │   ├── api/                  # API routes
-│   │   │   └── submit-form/      # Form submission endpoint
+│   │   │   └── submit-form/      # Form submission endpoint for contact form plugin integration
 │   │   └── studio/               # Sanity Studio routes
 │   │       └── [[...tool]]/      # Studio catch-all routes
 │   ├── components/               # React components
@@ -157,10 +156,6 @@ Queries live in `src/sanity/lib/queries.ts` and cover header/footer, sitemap, pa
 3) Use the insert menu (grid view) to discover blocks; re-order via drag-and-drop
 4) Most blocks have grouped fields (Content, Style, etc.) and collapsible sub-objects for a clean editing experience
 
-Insert menu previews
-- `pageBuilder` is configured to show grid previews if you add optional images at: `/public/block-previews/{schemaType}.png`
-  - Example: `/public/block-previews/hero.png`
-
 ## Contact Form Plugin
 
 The project includes `@multidots/sanity-plugin-contact-form` for dynamic form creation and management. For detailed setup and usage instructions, visit the [plugin documentation](https://www.npmjs.com/package/@multidots/sanity-plugin-contact-form).
@@ -233,10 +228,6 @@ Sanity configuration
   - The app throws a helpful error if `NEXT_PUBLIC_SANITY_PROJECT_ID` or `NEXT_PUBLIC_SANITY_DATASET` is missing
 - Studio not showing a type
   - Ensure the type is exported in `src/sanity/schemaTypes/index.ts`
-- Insert menu previews not visible
-  - Ensure `/public/block-previews/{schemaType}.png` exists and is correctly named
-
-
 
 
 ## License
