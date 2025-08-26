@@ -5,6 +5,11 @@
   "description": "Sanity Blog Theme by Multidots",
   "author": "Multidots",
   "license": "MIT",
+  "git": "https://github.com/multidots/sanity-blog.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/multidots/sanity-blog.git"
+  },
   "bin": {
     "sanity-blog-theme": "cli.js"
   },

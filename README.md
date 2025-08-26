@@ -30,6 +30,12 @@ yarn create sanity-blog-theme my-blog-project
 pnpm create sanity-blog-theme my-blog-project
 ```
 
+or Directly clone the repository:
+```bash
+git clone https://github.com/multidots/sanity-blog.git
+cd sanity-blog-theme
+```
+
 This will:
 - Create a new directory with your project name
 - Copy all template files
