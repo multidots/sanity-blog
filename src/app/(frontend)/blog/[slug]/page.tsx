@@ -101,8 +101,8 @@ export default async function BlogPostPage({ params }: Props) {
                             day: 'numeric',
                         })} | {post.categories && post.categories.length > 0 && (
                             <span className="blog-categories">
-                                {post.categories.map((category) => (
-                                    <span key={category.title}> | {category.title}</span>
+                                {post.categories.map((category: {title: string | null}) => (
+                                    <span key={category.title || ''}> | {category.title}</span>
                                 ))}
                             </span>
                         )}</p>

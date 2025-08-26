@@ -15,7 +15,7 @@ type HeaderProps = {
     }> | null;
 };
 
-export default function Header({ logo, siteTitle, menuItems }: HeaderProps) {
+export default function Header({ logo, menuItems }: HeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const hamburgerRef = useRef<HTMLDivElement>(null);
@@ -91,7 +91,7 @@ export default function Header({ logo, siteTitle, menuItems }: HeaderProps) {
                         aria-label="Main navigation"
                         aria-hidden={!isMenuOpen}
                     >
-                        {menuItems?.map((item, index) => (
+                        {menuItems?.map((item) => (
                             <Link 
                                 href={normalizeHref(item.url)}
                                 target={item.openInNewTab ? '_blank' : '_self'}
